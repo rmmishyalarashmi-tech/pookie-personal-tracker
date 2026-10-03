@@ -1,8 +1,13 @@
+/* ============================================================
+   POOKIE PERSONAL TRACKER
+   Service Worker
+   Cache version 2
+   ============================================================ */
+
 const CACHE_NAME =
-  "pookie-personal-tracker-v1";
+  "pookie-personal-tracker-v2";
 
-
-const APP_FILES = [
+const ASSETS = [
 
   "./",
 
@@ -19,6 +24,10 @@ const APP_FILES = [
 ];
 
 
+/* ============================================================
+   INSTALL
+   ============================================================ */
+
 self.addEventListener(
   "install",
   event => {
@@ -32,18 +41,21 @@ self.addEventListener(
         .then(
           cache =>
             cache.addAll(
-              APP_FILES
+              ASSETS
             )
         )
 
     );
-
 
     self.skipWaiting();
 
   }
 );
 
+
+/* ============================================================
+   ACTIVATE
+   ============================================================ */
 
 self.addEventListener(
   "activate",
@@ -54,29 +66,29 @@ self.addEventListener(
       caches
         .keys()
         .then(
-          keys =>
+          cacheNames =>
+
             Promise.all(
 
-              keys
-
+              cacheNames
                 .filter(
-                  key =>
-                    key !==
+                  cacheName =>
+                    cacheName !==
                     CACHE_NAME
                 )
 
                 .map(
-                  key =>
+                  cacheName =>
                     caches.delete(
-                      key
+                      cacheName
                     )
                 )
 
             )
+
         )
 
     );
-
 
     self.clients.claim();
 
@@ -84,41 +96,103 @@ self.addEventListener(
 );
 
 
+/* ============================================================
+   FETCH
+   ============================================================ */
+
 self.addEventListener(
   "fetch",
   event => {
 
+    const request =
+      event.request;
+
+
+    /*
+      For JavaScript files, try the
+      network first so updated code
+      appears quickly.
+    */
+
     if (
-      event.request.method !==
-      "GET"
+      request.destination ===
+      "script"
     ) {
+
+      event.respondWith(
+
+        fetch(
+          request
+        )
+
+          .then(
+            response => {
+
+              const copy =
+                response.clone();
+
+
+              caches
+                .open(
+                  CACHE_NAME
+                )
+                .then(
+                  cache => {
+
+                    cache.put(
+                      request,
+                      copy
+                    );
+
+                  }
+                );
+
+
+              return response;
+
+            }
+          )
+
+          .catch(
+            () =>
+              caches.match(
+                request
+              )
+          )
+
+      );
 
       return;
 
     }
 
 
+    /*
+      For other files:
+      cache first, then network.
+    */
+
     event.respondWith(
 
       caches
         .match(
-          event.request
+          request
         )
 
         .then(
-          cached => {
+          cachedResponse => {
 
             if (
-              cached
+              cachedResponse
             ) {
 
-              return cached;
+              return cachedResponse;
 
             }
 
 
             return fetch(
-              event.request
+              request
             )
 
               .then(
@@ -136,7 +210,7 @@ self.addEventListener(
                       cache => {
 
                         cache.put(
-                          event.request,
+                          request,
                           copy
                         );
 
@@ -147,13 +221,6 @@ self.addEventListener(
                   return response;
 
                 }
-              )
-
-              .catch(
-                () =>
-                  caches.match(
-                    "./index.html"
-                  )
               );
 
           }
