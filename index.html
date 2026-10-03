@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#ff72a8"
+  >
+
+  <meta
+    name="description"
+    content="Pookie Personal Tracker - your cute academic and activity garden."
+  >
+
+  <title>🌷 Pookie Personal Tracker</title>
+
+  <link
+    rel="manifest"
+    href="./manifest.json"
+  >
+
+  <link
+    rel="icon"
+    href="./icon.svg"
+    type="image/svg+xml"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./styles.css"
+  >
+
+</head>
+
+<body>
+
+  <!-- Floating butterflies -->
+
+  <div
+    class="butterfly b1"
+    aria-hidden="true"
+  >
+    🦋
+  </div>
+
+  <div
+    class="butterfly b2"
+    aria-hidden="true"
+  >
+    🦋
+  </div>
+
+  <div
+    class="butterfly b3"
+    aria-hidden="true"
+  >
+    🦋
+  </div>
+
+  <div
+    class="butterfly b4"
+    aria-hidden="true"
+  >
+    🦋
+  </div>
+
+
+  <div class="app-shell">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="topbar">
+
+      <div class="brand-card">
+
+        <div class="brand-title">
+          🌷 Pookie Personal Tracker
+        </div>
+
+        <div class="brand-subtitle">
+          your little digital garden ♡
+        </div>
+
+      </div>
+
+
+      <button
+        id="academicLockButton"
+        class="lock-pill"
+      >
+        🔐 Academic
+      </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HOME
+         ===================================================== -->
+
+    <section
+      id="home"
+      class="page active"
+    >
+
+      <div class="hero-grid">
+
+
+        <!-- Welcome -->
+
+        <article class="hero-card">
+
+          <div class="eyebrow">
+            ✨ WELCOME BACK
+          </div>
+
+          <h1 id="heroDate">
+            Loading...
+          </h1>
+
+          <p id="heroDay">
+            ...
+          </p>
+
+          <div class="hero-note">
+
+            Tiny steps.
+            Big garden.
+            Keep growing. 🌱🦋
+
+          </div>
+
+        </article>
+
+
+
+        <!-- Mini Calendar -->
+
+        <article class="glass-card mini-calendar-card">
+
+          <div class="calendar-heading">
+
+            <button
+              id="miniPrev"
+              class="circle-btn"
+            >
+              ‹
+            </button>
+
+            <strong id="miniMonth">
+              Month
+            </strong>
+
+            <button
+              id="miniNext"
+              class="circle-btn"
+            >
+              ›
+            </button>
+
+          </div>
+
+
+          <div class="weekday-row compact">
+
+            <span>S</span>
+            <span>M</span>
+            <span>T</span>
+            <span>W</span>
+            <span>T</span>
+            <span>F</span>
+            <span>S</span>
+
+          </div>
+
+
+          <div
+            id="miniCalendar"
+            class="calendar-grid"
+          ></div>
+
+        </article>
+
+      </div>
+
+
+
+      <!-- Daily proverb -->
+
+      <article class="glass-card proverb-card">
+
+        <div class="eyebrow pink">
+          🌸 TODAY'S LITTLE WISDOM
+        </div>
+
+        <div
+          id="dailyQuote"
+          class="quote"
+        >
+          ...
+        </div>
+
+        <div
+          id="quoteAuthor"
+          class="quote-author"
+        ></div>
+
+      </article>
+
+
+
+      <!-- Home feature cards -->
+
+      <div class="card-grid two">
+
+
+        <article class="feature-card pink-card">
+
+          <div class="feature-icon">
+            ⏰
+          </div>
+
+          <h2>
+            Deadline
+          </h2>
+
+          <p>
+            Upcoming Save the Date items
+            automatically appear here
+            as their dates approach.
+          </p>
+
+          <button
+            class="soft-btn"
+            data-page="saveDate"
+          >
+            Open deadlines ♡
+          </button>
+
+        </article>
+
+
+
+        <article class="feature-card lavender-card">
+
+          <div class="feature-icon">
+            🌱
+          </div>
+
+          <h2>
+            Academic Garden
+          </h2>
+
+          <p>
+            Your academic world lives here:
+            Academic Race, Events Elixir
+            and Save the Date.
+          </p>
+
+          <button
+            class="soft-btn"
+            data-page="garden"
+          >
+            Enter garden 🌷
+          </button>
+
+        </article>
+
+      </div>
+
+
+
+      <!-- Upcoming -->
+
+      <article class="glass-card deadline-preview">
+
+        <div class="section-title-row">
+
+          <div>
+
+            <h2>
+              ⏰ Coming Up
+            </h2>
+
+            <p class="muted">
+              The next little things waiting for you.
+            </p>
+
+          </div>
+
+          <button
+            class="link-btn"
+            data-page="saveDate"
+          >
+            See all →
+          </button>
+
+        </div>
+
+
+        <div
+          id="homeDeadlines"
+          class="list"
+        ></div>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ACADEMIC GARDEN
+         ===================================================== -->
+
+    <section
+      id="garden"
+      class="page"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <h1>
+            🌱 Academic Garden
+          </h1>
+
+          <p>
+            Three little paths through your journey.
+          </p>
+
+        </div>
+
+        <button
+          class="back-btn"
+          data-page="home"
+        >
+          ← Home
+        </button>
+
+      </div>
+
+
+
+      <div class="garden-grid">
+
+
+        <button
+          id="openAcademicRace"
+          class="garden-card"
+        >
+
+          <div class="garden-icon">
+            🏃‍♀️
+          </div>
+
+          <h2>
+            Academic Race
+          </h2>
+
+          <p>
+            1st, 2nd, 3rd and 4th year
+            academic tracking.
+          </p>
+
+        </button>
+
+
+
+        <button
+          class="garden-card"
+          data-page="events"
+        >
+
+          <div class="garden-icon">
+            ✨
+          </div>
+
+          <h2>
+            Events Elixir
+          </h2>
+
+          <p>
+            Store your event participation,
+            results, awards and remarks.
+          </p>
+
+        </button>
+
+
+
+        <button
+          class="garden-card"
+          data-page="saveDate"
+        >
+
+          <div class="garden-icon">
+            📅
+          </div>
+
+          <h2>
+            Save the Date
+          </h2>
+
+          <p>
+            Hackathons, workshops, exams
+            or anything you wish.
+          </p>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ACADEMIC RACE
+         ===================================================== -->
+
+    <section
+      id="academic"
+      class="page"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <h1>
+            🏃‍♀️ Academic Race
+          </h1>
+
+          <p>
+            Your complete eight-semester ECE journey.
+          </p>
+
+        </div>
+
+        <button
+          class="back-btn"
+          data-page="garden"
+        >
+          ← Garden
+        </button>
+
+      </div>
+
+
+
+      <!-- Locked -->
+
+      <div
+        id="academicLocked"
+        class="locked-card"
+      >
+
+        <div class="lock-art">
+          🔐
+        </div>
+
+        <h2>
+          Academic Garden is Locked
+        </h2>
+
+        <p>
+          Your marks, grades, GPA and CGPA
+          are protected.
+        </p>
+
+        <button
+          id="unlockFromAcademic"
+          class="primary-btn"
+        >
+          Unlock Academic Race 🦋
+        </button>
+
+      </div>
+
+
+
+      <!-- Unlocked -->
+
+      <div
+        id="academicUnlocked"
+        class="hidden"
+      >
+
+        <!-- Year -->
+
+        <div
+          id="yearTabs"
+          class="year-tabs"
+        >
+
+          <button
+            class="active"
+            data-year="1"
+          >
+            🌱 1st Year
+          </button>
+
+          <button
+            data-year="2"
+          >
+            🌱 2nd Year
+          </button>
+
+          <button
+            data-year="3"
+          >
+            🌱 3rd Year
+          </button>
+
+          <button
+            data-year="4"
+          >
+            🌱 4th Year
+          </button>
+
+        </div>
+
+
+        <div
+          id="academicContent"
+        ></div>
+
+
+        <button
+          id="lockAcademicBtn"
+          class="danger-btn"
+        >
+          🔒 Lock Academic Race
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EVENTS ELIXIR
+         ===================================================== -->
+
+    <section
+      id="events"
+      class="page"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <h1>
+            ✨ Events Elixir
+          </h1>
+
+          <p>
+            Your record of everything you participated in.
+          </p>
+
+        </div>
+
+        <button
+          class="back-btn"
+          data-page="garden"
+        >
+          ← Garden
+        </button>
+
+      </div>
+
+
+
+      <form
+        id="eventForm"
+        class="glass-card form-card"
+      >
+
+        <h2>
+          🌸 Add an Event
+        </h2>
+
+
+        <div class="form-grid">
+
+
+          <label>
+
+            Event Name
+
+            <input
+              name="name"
+              required
+              placeholder="Example: Tech Fest"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Event Type
+
+            <input
+              name="type"
+              list="eventTypes"
+              placeholder="Hackathon / Workshop / Custom"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Date
+
+            <input
+              name="date"
+              type="date"
+              required
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Time
+
+            <input
+              name="time"
+              type="time"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Organization / College
+
+            <input
+              name="organization"
+              placeholder="Organizer"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Venue
+
+            <input
+              name="venue"
+              placeholder="Venue / City"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Result
+
+            <input
+              name="result"
+              placeholder="Participated / Finalist / Winner"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Prize / Award
+
+            <input
+              name="prize"
+              placeholder="Optional"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Certificate
+
+            <select
+              name="certificate"
+            >
+
+              <option>
+                Not received
+              </option>
+
+              <option>
+                Received
+              </option>
+
+            </select>
+
+          </label>
+
+
+
+          <label class="full">
+
+            Remarks
+
+            <textarea
+              name="remarks"
+              placeholder="How did it go? Any special memory?"
+            ></textarea>
+
+          </label>
+
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Save Event ✨
+        </button>
+
+      </form>
+
+
+      <datalist id="eventTypes">
+
+        <option value="Hackathon">
+        <option value="Workshop">
+        <option value="Symposium">
+        <option value="Paper Presentation">
+        <option value="Competition">
+        <option value="Seminar">
+        <option value="Conference">
+        <option value="Cultural Event">
+        <option value="Coding Event">
+        <option value="Project Exhibition">
+
+      </datalist>
+
+
+      <div
+        id="eventsList"
+        class="list"
+      ></div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SAVE THE DATE
+         ===================================================== -->
+
+    <section
+      id="saveDate"
+      class="page"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <h1>
+            📅 Save the Date
+          </h1>
+
+          <p>
+            Put literally anything important here.
+          </p>
+
+        </div>
+
+        <button
+          class="back-btn"
+          data-page="home"
+        >
+          ← Home
+        </button>
+
+      </div>
+
+
+
+      <form
+        id="saveDateForm"
+        class="glass-card form-card"
+      >
+
+        <h2>
+          🦋 Save Something
+        </h2>
+
+
+        <div class="form-grid">
+
+
+          <label>
+
+            Title
+
+            <input
+              name="title"
+              required
+              placeholder="Hackathon / Exam / Workshop / Anything"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Type
+
+            <input
+              name="type"
+              placeholder="Optional"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Date
+
+            <input
+              name="date"
+              type="date"
+              required
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Time
+
+            <input
+              name="time"
+              type="time"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Venue
+
+            <input
+              name="venue"
+              placeholder="Optional"
+            >
+
+          </label>
+
+
+
+          <label>
+
+            Reminder
+
+            <select
+              name="reminder"
+            >
+
+              <option>
+                None
+              </option>
+
+              <option>
+                On the day
+              </option>
+
+              <option>
+                1 day before
+              </option>
+
+              <option>
+                3 days before
+              </option>
+
+              <option>
+                7 days before
+              </option>
+
+            </select>
+
+          </label>
+
+
+
+          <label class="full">
+
+            Remarks
+
+            <textarea
+              name="remarks"
+              placeholder="Optional notes..."
+            ></textarea>
+
+          </label>
+
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Save the Date 📌
+        </button>
+
+      </form>
+
+
+      <div
+        id="saveDatesList"
+        class="list"
+      ></div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FULL CALENDAR
+         ===================================================== -->
+
+    <section
+      id="calendar"
+      class="page"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <h1>
+            🗓️ Calendar
+          </h1>
+
+          <p>
+            Your saved upcoming dates.
+          </p>
+
+        </div>
+
+        <button
+          class="back-btn"
+          data-page="home"
+        >
+          ← Home
+        </button>
+
+      </div>
+
+
+
+      <article
+        class="glass-card full-calendar-card"
+      >
+
+        <div class="calendar-heading large">
+
+          <button
+            id="fullPrev"
+            class="circle-btn"
+          >
+            ‹
+          </button>
+
+          <strong id="fullMonth">
+            Month
+          </strong>
+
+          <button
+            id="fullNext"
+            class="circle-btn"
+          >
+            ›
+          </button>
+
+        </div>
+
+
+        <div class="weekday-row">
+
+          <span>Sun</span>
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span>Sat</span>
+
+        </div>
+
+
+        <div
+          id="fullCalendar"
+          class="calendar-grid"
+        ></div>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MOBILE NAVIGATION
+         ===================================================== -->
+
+    <nav class="bottom-nav">
+
+      <button
+        data-page="home"
+        class="active"
+      >
+        🏡
+        <span>Home</span>
+      </button>
+
+      <button
+        data-page="garden"
+      >
+        🌱
+        <span>Garden</span>
+      </button>
+
+      <button
+        data-page="events"
+      >
+        ✨
+        <span>Events</span>
+      </button>
+
+      <button
+        data-page="saveDate"
+      >
+        📅
+        <span>Dates</span>
+      </button>
+
+      <button
+        data-page="calendar"
+      >
+        🗓️
+        <span>Calendar</span>
+      </button>
+
+    </nav>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       PASSWORD MODAL
+       ===================================================== -->
+
+  <div
+    id="lockModal"
+    class="modal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-box">
+
+      <button
+        id="closeModal"
+        class="modal-close"
+      >
+        ×
+      </button>
+
+
+      <div class="lock-art">
+        🔐
+      </div>
+
+
+      <h2>
+        Unlock Academic Race
+      </h2>
+
+
+      <p>
+        Your academic records are private.
+      </p>
+
+
+      <form
+        id="unlockForm"
+      >
+
+        <input
+          id="passwordInput"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Enter password"
+          required
+        >
+
+
+        <button
+          type="submit"
+          class="primary-btn full-btn"
+        >
+          Unlock 🦋
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Toast -->
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+
+  <script src="./app.js"></script>
+
+</body>
+</html>

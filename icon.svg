@@ -1,0 +1,162 @@
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+  <defs>
+
+    <linearGradient
+      id="background"
+      x1="0%"
+      y1="0%"
+      x2="100%"
+      y2="100%"
+    >
+      <stop
+        offset="0%"
+        stop-color="#ffb5d3"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#d9c8ff"
+      />
+    </linearGradient>
+
+    <linearGradient
+      id="heart"
+      x1="0%"
+      y1="0%"
+      x2="100%"
+      y2="100%"
+    >
+      <stop
+        offset="0%"
+        stop-color="#ff76aa"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#e24f8b"
+      />
+    </linearGradient>
+
+  </defs>
+
+  <!-- Pink and lavender background -->
+  <rect
+    width="512"
+    height="512"
+    rx="120"
+    fill="url(#background)"
+  />
+
+  <!-- White circle -->
+  <circle
+    cx="256"
+    cy="270"
+    r="145"
+    fill="#ffffff"
+    opacity="0.94"
+  />
+
+  <!-- Heart -->
+  <path
+    d="
+      M256 382
+      C239 367 151 300 151 224
+      C151 184 179 157 215 157
+      C236 157 251 168 256 183
+      C261 168 276 157 297 157
+      C333 157 361 184 361 224
+      C361 300 273 367 256 382
+      Z
+    "
+    fill="url(#heart)"
+  />
+
+  <!-- Eyes -->
+  <circle
+    cx="218"
+    cy="245"
+    r="11"
+    fill="#ffffff"
+  />
+
+  <circle
+    cx="294"
+    cy="245"
+    r="11"
+    fill="#ffffff"
+  />
+
+  <!-- Smile -->
+  <path
+    d="M226 286 Q256 311 286 286"
+    fill="none"
+    stroke="#c93f76"
+    stroke-width="9"
+    stroke-linecap="round"
+  />
+
+  <!-- Butterfly -->
+  <g
+    transform="
+      translate(256 108)
+      scale(0.75)
+    "
+  >
+
+    <!-- Upper wings -->
+    <path
+      d="
+        M0 25
+        C-60 -40 -130 -10 -105 48
+        C-90 82 -42 71 0 35
+        Z
+      "
+      fill="#9e7be0"
+    />
+
+    <path
+      d="
+        M0 25
+        C60 -40 130 -10 105 48
+        C90 82 42 71 0 35
+        Z
+      "
+      fill="#9e7be0"
+    />
+
+    <!-- Lower wings -->
+    <path
+      d="
+        M0 36
+        C-52 30 -92 67 -60 96
+        C-40 114 -13 91 0 52
+        Z
+      "
+      fill="#ff78ad"
+    />
+
+    <path
+      d="
+        M0 36
+        C52 30 92 67 60 96
+        C40 114 13 91 0 52
+        Z
+      "
+      fill="#ff78ad"
+    />
+
+    <!-- Butterfly body -->
+    <ellipse
+      cx="0"
+      cy="50"
+      rx="8"
+      ry="42"
+      fill="#684657"
+    />
+
+  </g>
+
+</svg>
+```
