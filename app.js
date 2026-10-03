@@ -10,19 +10,28 @@
 
 const state = {
 
-  currentPage: "home",
+  currentPage:
+    "home",
 
   calendar:
     new Date(),
 
-  currentYear: 1,
+  currentYear:
+    1,
 
-  currentSemester: 1,
+  currentSemester:
+    1,
 
   academicMode:
     "theory",
 
   academicEditMode:
+    false,
+
+  growthYear:
+    1,
+
+  eventsFormOpen:
     false
 
 };
@@ -52,19 +61,26 @@ const STORAGE = {
 
 const GRADE_POINTS = {
 
-  O: 10,
+  O:
+    10,
 
-  "A+": 9,
+  "A+":
+    9,
 
-  A: 8,
+  A:
+    8,
 
-  "B+": 7,
+  "B+":
+    7,
 
-  B: 6,
+  B:
+    6,
 
-  C: 5,
+  C:
+    5,
 
-  U: 0
+  U:
+    0
 
 };
 
@@ -145,610 +161,1244 @@ const PROVERBS = [
 const CURRICULUM = {
 
   1: {
-    year: 1,
-    name: "Semester I",
+
+    year:
+      1,
+
+    name:
+      "Semester I",
 
     courses: [
 
       {
-        code: "EN3111",
-        title: "Professional English – I",
-        category: "HSMC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EN3111",
+
+        title:
+          "Professional English – I",
+
+        category:
+          "HSMC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "MA3122",
-        title: "Matrices and Calculus",
-        category: "BSC",
-        credits: 4,
-        section: "theory"
+        code:
+          "MA3122",
+
+        title:
+          "Matrices and Calculus",
+
+        category:
+          "BSC",
+
+        credits:
+          4,
+
+        section:
+          "theory"
       },
 
       {
-        code: "PH3123",
-        title: "Engineering Physics",
-        category: "BSC",
-        credits: 3,
-        section: "theory"
+        code:
+          "PH3123",
+
+        title:
+          "Engineering Physics",
+
+        category:
+          "BSC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "CH3124",
-        title: "Engineering Chemistry",
-        category: "BSC",
-        credits: 3,
-        section: "theory"
+        code:
+          "CH3124",
+
+        title:
+          "Engineering Chemistry",
+
+        category:
+          "BSC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "GE3132",
-        title: "Basic Electrical and Instrumentation Engineering",
-        category: "ESC",
-        credits: 3,
-        section: "theory"
+        code:
+          "GE3132",
+
+        title:
+          "Basic Electrical and Instrumentation Engineering",
+
+        category:
+          "ESC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "GE3111",
-        title: "Heritage of Tamils / தமிழர்மரபு",
-        category: "HSMC",
-        credits: 1,
-        section: "theory"
+        code:
+          "GE3111",
+
+        title:
+          "Heritage of Tamils / தமிழர்மரபு",
+
+        category:
+          "HSMC",
+
+        credits:
+          1,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EN3119",
-        title: "English Language Learning Laboratory",
-        category: "HSMC",
-        credits: 1,
-        section: "practical"
+        code:
+          "EN3119",
+
+        title:
+          "English Language Learning Laboratory",
+
+        category:
+          "HSMC",
+
+        credits:
+          1,
+
+        section:
+          "practical"
       },
 
       {
-        code: "GE3121",
-        title: "Physics and Chemistry Laboratory",
-        category: "BSC",
-        credits: 2,
-        section: "practical"
+        code:
+          "GE3121",
+
+        title:
+          "Physics and Chemistry Laboratory",
+
+        category:
+          "BSC",
+
+        credits:
+          2,
+
+        section:
+          "practical"
       },
 
       {
-        code: "GE3134",
-        title: "Engineering Practices Laboratory",
-        category: "ESC",
-        credits: 2,
-        section: "practical"
+        code:
+          "GE3134",
+
+        title:
+          "Engineering Practices Laboratory",
+
+        category:
+          "ESC",
+
+        credits:
+          2,
+
+        section:
+          "practical"
       }
 
     ]
+
   },
 
 
   2: {
-    year: 1,
-    name: "Semester II",
+
+    year:
+      1,
+
+    name:
+      "Semester II",
 
     courses: [
 
       {
-        code: "EN3211",
-        title: "Professional English – II",
-        category: "HSMC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EN3211",
+
+        title:
+          "Professional English – II",
+
+        category:
+          "HSMC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "MA3222",
-        title: "Statistics and Numerical Methods",
-        category: "BSC",
-        credits: 4,
-        section: "theory"
+        code:
+          "MA3222",
+
+        title:
+          "Statistics and Numerical Methods",
+
+        category:
+          "BSC",
+
+        credits:
+          4,
+
+        section:
+          "theory"
       },
 
       {
-        code: "PH3223",
-        title: "Physics for Electronics Engineering",
-        category: "BSC",
-        credits: 3,
-        section: "theory"
+        code:
+          "PH3223",
+
+        title:
+          "Physics for Electronics Engineering",
+
+        category:
+          "BSC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "CH3223",
-        title: "Chemistry of Electronic Materials",
-        category: "BSC",
-        credits: 3,
-        section: "theory"
+        code:
+          "CH3223",
+
+        title:
+          "Chemistry of Electronic Materials",
+
+        category:
+          "BSC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "GE3231",
-        title: "Problem Solving and Python Programming",
-        category: "ESC",
-        credits: 3,
-        section: "theory"
+        code:
+          "GE3231",
+
+        title:
+          "Problem Solving and Python Programming",
+
+        category:
+          "ESC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "GE3211",
-        title: "Tamils and Technology / தமிழரும் தொழில்நுட்பமும்",
-        category: "HSMC",
-        credits: 1,
-        section: "theory"
+        code:
+          "GE3211",
+
+        title:
+          "Tamils and Technology / தமிழரும் தொழில்நுட்பமும்",
+
+        category:
+          "HSMC",
+
+        credits:
+          1,
+
+        section:
+          "theory"
       },
 
       {
-        code: "GE3233",
-        title: "Engineering Graphics and Design",
-        category: "ESC",
-        credits: 3,
-        section: "theory"
+        code:
+          "GE3233",
+
+        title:
+          "Engineering Graphics and Design",
+
+        category:
+          "ESC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "GE3221",
-        title: "Engineering Sciences Laboratory",
-        category: "BSC",
-        credits: 2,
-        section: "practical"
+        code:
+          "GE3221",
+
+        title:
+          "Engineering Sciences Laboratory",
+
+        category:
+          "BSC",
+
+        credits:
+          2,
+
+        section:
+          "practical"
       },
 
       {
-        code: "GE3232",
-        title: "Problem Solving and Python Programming Laboratory",
-        category: "ESC",
-        credits: 2,
-        section: "practical"
+        code:
+          "GE3232",
+
+        title:
+          "Problem Solving and Python Programming Laboratory",
+
+        category:
+          "ESC",
+
+        credits:
+          2,
+
+        section:
+          "practical"
       },
 
       {
-        code: "GE3251",
-        title: "NSS / YRC / NSO / Club Activities",
-        category: "PCD",
-        credits: 0,
-        section: "theory"
+        code:
+          "GE3251",
+
+        title:
+          "NSS / YRC / NSO / Club Activities",
+
+        category:
+          "PCD",
+
+        credits:
+          0,
+
+        section:
+          "theory"
       }
 
     ]
+
   },
 
 
   3: {
-    year: 2,
-    name: "Semester III",
+
+    year:
+      2,
+
+    name:
+      "Semester III",
 
     courses: [
 
       {
-        code: "MA3321",
-        title: "Transforms and Partial Differential Equations",
-        category: "BSC",
-        credits: 3,
-        section: "theory"
+        code:
+          "MA3321",
+
+        title:
+          "Transforms and Partial Differential Equations",
+
+        category:
+          "BSC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3362",
-        title: "Solid State Devices and Circuits",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3362",
+
+        title:
+          "Solid State Devices and Circuits",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3363",
-        title: "Signals and Systems",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3363",
+
+        title:
+          "Signals and Systems",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EE3363",
-        title: "Electric Circuit Analysis",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EE3363",
+
+        title:
+          "Electric Circuit Analysis",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3365",
-        title: "Electromagnetic Fields",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3365",
+
+        title:
+          "Electromagnetic Fields",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3366",
-        title: "Digital Systems Design",
-        category: "PCC",
-        credits: 4,
-        section: "theory"
+        code:
+          "EC3366",
+
+        title:
+          "Digital Systems Design",
+
+        category:
+          "PCC",
+
+        credits:
+          4,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3367",
-        title: "Electronics Circuits Design Laboratory",
-        category: "PCC",
-        credits: 1.5,
-        section: "practical"
+        code:
+          "EC3367",
+
+        title:
+          "Electronics Circuits Design Laboratory",
+
+        category:
+          "PCC",
+
+        credits:
+          1.5,
+
+        section:
+          "practical"
       },
 
       {
-        code: "EE3369",
-        title: "Circuits Theory and Electronic Devices Laboratory",
-        category: "PCC",
-        credits: 1.5,
-        section: "practical"
+        code:
+          "EE3369",
+
+        title:
+          "Circuits Theory and Electronic Devices Laboratory",
+
+        category:
+          "PCC",
+
+        credits:
+          1.5,
+
+        section:
+          "practical"
       }
 
     ]
+
   },
 
 
   4: {
-    year: 2,
-    name: "Semester IV",
+
+    year:
+      2,
+
+    name:
+      "Semester IV",
 
     courses: [
 
       {
-        code: "MA3424",
-        title: "Applied Mathematics for Electronics and Communication Engineering",
-        category: "BSC",
-        credits: 2,
-        section: "theory"
+        code:
+          "MA3424",
+
+        title:
+          "Applied Mathematics for Electronics and Communication Engineering",
+
+        category:
+          "BSC",
+
+        credits:
+          2,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3462",
-        title: "Linear Integrated Circuits",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3462",
+
+        title:
+          "Linear Integrated Circuits",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3463",
-        title: "Analog Communication",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3463",
+
+        title:
+          "Analog Communication",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3464",
-        title: "Microprocessors, Microcontrollers and Interfacing",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3464",
+
+        title:
+          "Microprocessors, Microcontrollers and Interfacing",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EI3464",
-        title: "Control Systems",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EI3464",
+
+        title:
+          "Control Systems",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "GE3451",
-        title: "NCC Credit Course Level - I",
-        category: "PCD",
-        credits: 3,
-        section: "theory"
+        code:
+          "GE3451",
+
+        title:
+          "NCC Credit Course Level - I",
+
+        category:
+          "PCD",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3465",
-        title: "Digital Signal Processing",
-        category: "PCC",
-        credits: 4,
-        section: "theory"
+        code:
+          "EC3465",
+
+        title:
+          "Digital Signal Processing",
+
+        category:
+          "PCC",
+
+        credits:
+          4,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3466",
-        title: "Linear IC and PCB Design Laboratory",
-        category: "PCC",
-        credits: 1.5,
-        section: "practical"
+        code:
+          "EC3466",
+
+        title:
+          "Linear IC and PCB Design Laboratory",
+
+        category:
+          "PCC",
+
+        credits:
+          1.5,
+
+        section:
+          "practical"
       },
 
       {
-        code: "EC3467",
-        title: "Microprocessors, Microcontrollers and Interfacing Laboratory",
-        category: "PCC",
-        credits: 1.5,
-        section: "practical"
+        code:
+          "EC3467",
+
+        title:
+          "Microprocessors, Microcontrollers and Interfacing Laboratory",
+
+        category:
+          "PCC",
+
+        credits:
+          1.5,
+
+        section:
+          "practical"
       }
 
     ]
+
   },
 
 
   5: {
-    year: 3,
-    name: "Semester V",
+
+    year:
+      3,
+
+    name:
+      "Semester V",
 
     courses: [
 
       {
-        code: "EC3561",
-        title: "Digital Communication",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3561",
+
+        title:
+          "Digital Communication",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3562",
-        title: "Transmission Lines and Waveguides",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3562",
+
+        title:
+          "Transmission Lines and Waveguides",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3563",
-        title: "VLSI and Chip Design",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3563",
+
+        title:
+          "VLSI and Chip Design",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "PEC10X",
-        title: "Professional Elective-I",
-        category: "PEC",
-        credits: 3,
-        section: "theory"
+        code:
+          "PEC10X",
+
+        title:
+          "Professional Elective-I",
+
+        category:
+          "PEC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "PEC20X",
-        title: "Professional Elective-II",
-        category: "PEC",
-        credits: 3,
-        section: "theory"
+        code:
+          "PEC20X",
+
+        title:
+          "Professional Elective-II",
+
+        category:
+          "PEC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "CE3531",
-        title: "Environmental Studies",
-        category: "ESC",
-        credits: 2,
-        section: "theory"
+        code:
+          "CE3531",
+
+        title:
+          "Environmental Studies",
+
+        category:
+          "ESC",
+
+        credits:
+          2,
+
+        section:
+          "theory"
       },
 
       {
-        code: "GE3551",
-        title: "NCC Credit Course Level-II",
-        category: "PCD",
-        credits: 3,
-        section: "theory"
+        code:
+          "GE3551",
+
+        title:
+          "NCC Credit Course Level-II",
+
+        category:
+          "PCD",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3564",
-        title: "Embedded Systems and IoT Design",
-        category: "PCC",
-        credits: 4,
-        section: "theory"
+        code:
+          "EC3564",
+
+        title:
+          "Embedded Systems and IoT Design",
+
+        category:
+          "PCC",
+
+        credits:
+          4,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3566",
-        title: "VLSI Laboratory",
-        category: "PCC",
-        credits: 1.5,
-        section: "practical"
+        code:
+          "EC3566",
+
+        title:
+          "VLSI Laboratory",
+
+        category:
+          "PCC",
+
+        credits:
+          1.5,
+
+        section:
+          "practical"
       },
 
       {
-        code: "EC3567",
-        title: "Analog and Digital Communication Laboratory",
-        category: "PCC",
-        credits: 1.5,
-        section: "practical"
+        code:
+          "EC3567",
+
+        title:
+          "Analog and Digital Communication Laboratory",
+
+        category:
+          "PCC",
+
+        credits:
+          1.5,
+
+        section:
+          "practical"
       }
 
     ]
+
   },
 
 
   6: {
-    year: 3,
-    name: "Semester VI",
+
+    year:
+      3,
+
+    name:
+      "Semester VI",
 
     courses: [
 
       {
-        code: "EC3661",
-        title: "Wireless Communication",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3661",
+
+        title:
+          "Wireless Communication",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3662",
-        title: "Computer Networks and Security",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3662",
+
+        title:
+          "Computer Networks and Security",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3663",
-        title: "Antennas and Wave Propagation",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3663",
+
+        title:
+          "Antennas and Wave Propagation",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "PEC30X",
-        title: "Professional Elective-III",
-        category: "PEC",
-        credits: 3,
-        section: "theory"
+        code:
+          "PEC30X",
+
+        title:
+          "Professional Elective-III",
+
+        category:
+          "PEC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "PXXX0X",
-        title: "Professional Elective-IV",
-        category: "PEC",
-        credits: 3,
-        section: "theory"
+        code:
+          "PXXX0X",
+
+        title:
+          "Professional Elective-IV",
+
+        category:
+          "PEC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "MAN10X",
-        title: "Management Elective",
-        category: "HSMC",
-        credits: 2,
-        section: "theory"
+        code:
+          "MAN10X",
+
+        title:
+          "Management Elective",
+
+        category:
+          "HSMC",
+
+        credits:
+          2,
+
+        section:
+          "theory"
       },
 
       {
-        code: "MXX10X",
-        title: "Mandatory Course-I",
-        category: "MC",
-        credits: 0,
-        section: "theory"
+        code:
+          "MXX10X",
+
+        title:
+          "Mandatory Course-I",
+
+        category:
+          "MC",
+
+        credits:
+          0,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3664",
-        title: "Wireless Communication and Networking Laboratory",
-        category: "PCC",
-        credits: 1.5,
-        section: "practical"
+        code:
+          "EC3664",
+
+        title:
+          "Wireless Communication and Networking Laboratory",
+
+        category:
+          "PCC",
+
+        credits:
+          1.5,
+
+        section:
+          "practical"
       },
 
       {
-        code: "EC3645",
-        title: "Mini Project",
-        category: "EEC",
-        credits: 2,
-        section: "practical"
+        code:
+          "EC3645",
+
+        title:
+          "Mini Project",
+
+        category:
+          "EEC",
+
+        credits:
+          2,
+
+        section:
+          "practical"
       },
 
       {
-        code: "EN3649",
-        title: "Professional Communication Laboratory",
-        category: "EEC",
-        credits: 1,
-        section: "practical"
+        code:
+          "EN3649",
+
+        title:
+          "Professional Communication Laboratory",
+
+        category:
+          "EEC",
+
+        credits:
+          1,
+
+        section:
+          "practical"
       }
 
     ]
+
   },
 
 
   7: {
-    year: 4,
-    name: "Semester VII",
+
+    year:
+      4,
+
+    name:
+      "Semester VII",
 
     courses: [
 
       {
-        code: "EC3761",
-        title: "Microwave and Optical Communication",
-        category: "PCC",
-        credits: 3,
-        section: "theory"
+        code:
+          "EC3761",
+
+        title:
+          "Microwave and Optical Communication",
+
+        category:
+          "PCC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "PEC50X",
-        title: "Professional Elective-V",
-        category: "PEC",
-        credits: 3,
-        section: "theory"
+        code:
+          "PEC50X",
+
+        title:
+          "Professional Elective-V",
+
+        category:
+          "PEC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "PEC60X",
-        title: "Professional Elective-VI",
-        category: "PEC",
-        credits: 3,
-        section: "theory"
+        code:
+          "PEC60X",
+
+        title:
+          "Professional Elective-VI",
+
+        category:
+          "PEC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "BA3711",
-        title: "Human Values and Ethics",
-        category: "HSMC",
-        credits: 2,
-        section: "theory"
+        code:
+          "BA3711",
+
+        title:
+          "Human Values and Ethics",
+
+        category:
+          "HSMC",
+
+        credits:
+          2,
+
+        section:
+          "theory"
       },
 
       {
-        code: "OXXXXX",
-        title: "Open Elective",
-        category: "OEC",
-        credits: 3,
-        section: "theory"
+        code:
+          "OXXXXX",
+
+        title:
+          "Open Elective",
+
+        category:
+          "OEC",
+
+        credits:
+          3,
+
+        section:
+          "theory"
       },
 
       {
-        code: "MXX20X",
-        title: "Mandatory Course-II",
-        category: "MC",
-        credits: 0,
-        section: "theory"
+        code:
+          "MXX20X",
+
+        title:
+          "Mandatory Course-II",
+
+        category:
+          "MC",
+
+        credits:
+          0,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3763",
-        title: "Artificial Intelligence and Machine Learning Techniques",
-        category: "PCC",
-        credits: 4,
-        section: "theory"
+        code:
+          "EC3763",
+
+        title:
+          "Artificial Intelligence and Machine Learning Techniques",
+
+        category:
+          "PCC",
+
+        credits:
+          4,
+
+        section:
+          "theory"
       },
 
       {
-        code: "EC3764",
-        title: "Microwave and Optical Communication Laboratory",
-        category: "PCC",
-        credits: 1.5,
-        section: "practical"
+        code:
+          "EC3764",
+
+        title:
+          "Microwave and Optical Communication Laboratory",
+
+        category:
+          "PCC",
+
+        credits:
+          1.5,
+
+        section:
+          "practical"
       },
 
       {
-        code: "EC3745",
-        title: "Internship",
-        category: "EEC",
-        credits: 1,
-        section: "practical"
+        code:
+          "EC3745",
+
+        title:
+          "Internship",
+
+        category:
+          "EEC",
+
+        credits:
+          1,
+
+        section:
+          "practical"
       }
 
     ]
+
   },
 
 
   8: {
-    year: 4,
-    name: "Semester VIII",
+
+    year:
+      4,
+
+    name:
+      "Semester VIII",
 
     courses: [
 
       {
-        code: "EC3841",
-        title: "Project Work",
-        category: "EEC",
-        credits: 10,
-        section: "practical"
+        code:
+          "EC3841",
+
+        title:
+          "Project Work",
+
+        category:
+          "EEC",
+
+        credits:
+          10,
+
+        section:
+          "practical"
       }
 
     ]
+
   }
 
 };
@@ -760,7 +1410,9 @@ const CURRICULUM = {
 
 function $(id) {
 
-  return document.getElementById(id);
+  return document.getElementById(
+    id
+  );
 
 }
 
@@ -807,6 +1459,12 @@ function toast(
 
   const element =
     $("toast");
+
+  if (
+    !element
+  )
+    return;
+
 
   element.textContent =
     message;
@@ -952,21 +1610,26 @@ function localDateString(
 ) {
 
   return (
+
     date.getFullYear() +
     "-" +
+
     String(
       date.getMonth() + 1
     ).padStart(
       2,
       "0"
     ) +
+
     "-" +
+
     String(
       date.getDate()
     ).padStart(
       2,
       "0"
     )
+
   );
 
 }
@@ -987,7 +1650,9 @@ function formatDate(
   value
 ) {
 
-  if (!value)
+  if (
+    !value
+  )
     return "";
 
   return parseDate(
@@ -995,6 +1660,7 @@ function formatDate(
   ).toLocaleDateString(
     "en-IN",
     {
+
       day:
         "numeric",
 
@@ -1003,6 +1669,7 @@ function formatDate(
 
       year:
         "numeric"
+
     }
   );
 
@@ -1023,6 +1690,7 @@ function daysUntil(
     0
   );
 
+
   const date =
     parseDate(
       value
@@ -1034,6 +1702,7 @@ function daysUntil(
     0,
     0
   );
+
 
   return Math.round(
     (
@@ -1068,7 +1737,7 @@ function showPage(
         page.classList.toggle(
           "active",
           page.id ===
-            pageId
+          pageId
         );
 
       }
@@ -1085,7 +1754,7 @@ function showPage(
         button.classList.toggle(
           "active",
           button.dataset.page ===
-            pageId
+          pageId
         );
 
       }
@@ -1102,29 +1771,19 @@ function showPage(
   }
 
 
+  if (
+    pageId ===
+    "academicGrowth"
+  ) {
+
+    renderAcademicGrowth();
+
+  }
+
+
   renderCalendars();
 
 }
-
-
-document.addEventListener(
-  "click",
-  event => {
-
-    const button =
-      event.target.closest(
-        "[data-page]"
-      );
-
-    if (!button)
-      return;
-
-    showPage(
-      button.dataset.page
-    );
-
-  }
-);
 
 
 /* ============================================================
@@ -1137,29 +1796,45 @@ function renderHome() {
     new Date();
 
 
-  $("heroDate")
-    .textContent =
+  if (
+    $("heroDate")
+  ) {
+
+    $("heroDate")
+      .textContent =
       now.toLocaleDateString(
         "en-IN",
         {
+
           day:
             "numeric",
 
           month:
             "long"
+
         }
       );
 
+  }
 
-  $("heroDay")
-    .textContent =
+
+  if (
+    $("heroDay")
+  ) {
+
+    $("heroDay")
+      .textContent =
       now.toLocaleDateString(
         "en-IN",
         {
+
           weekday:
             "long"
+
         }
       );
+
+  }
 
 
   const start =
@@ -1190,14 +1865,26 @@ function renderHome() {
     ];
 
 
-  $("dailyQuote")
-    .textContent =
+  if (
+    $("dailyQuote")
+  ) {
+
+    $("dailyQuote")
+      .textContent =
       `“${quote}”`;
 
+  }
 
-  $("quoteAuthor")
-    .textContent =
+
+  if (
+    $("quoteAuthor")
+  ) {
+
+    $("quoteAuthor")
+      .textContent =
       `— ${author}`;
+
+  }
 
 
   renderHomeDeadlines();
@@ -1210,6 +1897,12 @@ function renderHome() {
    ============================================================ */
 
 function renderHomeDeadlines() {
+
+  if (
+    !$("homeDeadlines")
+  )
+    return;
+
 
   const upcoming =
     [
@@ -1240,13 +1933,16 @@ function renderHomeDeadlines() {
 
 
   if (
-    upcoming.length === 0
+    upcoming.length ===
+    0
   ) {
 
     $("homeDeadlines")
       .innerHTML = `
 
-        <div class="empty">
+        <div
+          class="empty"
+        >
 
           🌸 Nothing upcoming yet.
 
@@ -1265,109 +1961,114 @@ function renderHomeDeadlines() {
   $("homeDeadlines")
     .innerHTML =
 
-      upcoming
-        .map(
-          item => {
+    upcoming
+      .map(
+        item => {
 
-            const d =
-              daysUntil(
-                item.date
-              );
-
-
-            let label;
+          const d =
+            daysUntil(
+              item.date
+            );
 
 
-            if (
-              d === 0
-            ) {
-
-              label =
-                "TODAY 🎀";
-
-            } else if (
-              d === 1
-            ) {
-
-              label =
-                "Tomorrow 🦋";
-
-            } else {
-
-              label =
-                `${d} days left`;
-
-            }
+          let label;
 
 
-            return `
+          if (
+            d ===
+            0
+          ) {
+
+            label =
+              "TODAY 🎀";
+
+          }
+
+          else if (
+            d ===
+            1
+          ) {
+
+            label =
+              "Tomorrow 🦋";
+
+          }
+
+          else {
+
+            label =
+              `${d} days left`;
+
+          }
+
+
+          return `
+
+            <div
+              class="deadline-item"
+            >
 
               <div
-                class="deadline-item"
+                class="item-row"
               >
 
-                <div
-                  class="item-row"
-                >
+                <div>
 
-                  <div>
+                  <div
+                    class="item-title"
+                  >
 
-                    <div
-                      class="item-title"
-                    >
-
-                      ${escapeHtml(
-                        item.title
-                      )}
-
-                    </div>
-
-
-                    <div
-                      class="item-meta"
-                    >
-
-                      📅
-                      ${formatDate(
-                        item.date
-                      )}
-
-                      ${
-                        item.time
-
-                          ? `
-                            · ⏰
-                            ${escapeHtml(
-                              item.time
-                            )}
-                          `
-
-                          : ""
-                      }
-
-                    </div>
+                    ${escapeHtml(
+                      item.title
+                    )}
 
                   </div>
 
 
-                  <span
-                    class="badge"
+                  <div
+                    class="item-meta"
                   >
 
-                    ${label}
+                    📅
+                    ${formatDate(
+                      item.date
+                    )}
 
-                  </span>
+                    ${
+                      item.time
+
+                        ? `
+                          · ⏰
+                          ${escapeHtml(
+                            item.time
+                          )}
+                        `
+
+                        : ""
+                    }
+
+                  </div>
 
                 </div>
 
+
+                <span
+                  class="badge"
+                >
+
+                  ${label}
+
+                </span>
+
               </div>
 
-            `;
+            </div>
 
-          }
-        )
+          `;
 
-        .join("");
+        }
+      )
+      .join("");
 
 }
 
@@ -1376,96 +2077,108 @@ function renderHomeDeadlines() {
    SAVE THE DATE
    ============================================================ */
 
-$("saveDateForm")
-  .addEventListener(
-    "submit",
-    event => {
+if (
+  $("saveDateForm")
+) {
 
-      event.preventDefault();
+  $("saveDateForm")
+    .addEventListener(
+      "submit",
+      event => {
 
-
-      const data =
-        Object.fromEntries(
-          new FormData(
-            event.currentTarget
-          ).entries()
-        );
+        event.preventDefault();
 
 
-      if (
-        !data.title ||
-        !data.date
-      ) {
+        const data =
+          Object.fromEntries(
+            new FormData(
+              event.currentTarget
+            ).entries()
+          );
+
+
+        if (
+          !data.title ||
+          !data.date
+        ) {
+
+          toast(
+            "Title and date are required 🌷"
+          );
+
+          return;
+
+        }
+
+
+        saveDates.push({
+
+          id:
+            crypto.randomUUID(),
+
+          title:
+            data.title,
+
+          type:
+            data.type ||
+            "",
+
+          date:
+            data.date,
+
+          time:
+            data.time ||
+            "",
+
+          venue:
+            data.venue ||
+            "",
+
+          reminder:
+            data.reminder ||
+            "None",
+
+          remarks:
+            data.remarks ||
+            "",
+
+          createdAt:
+            new Date()
+              .toISOString()
+
+        });
+
+
+        saveDatesData();
+
+
+        event.currentTarget
+          .reset();
+
+
+        renderSaveDates();
+
+        renderHomeDeadlines();
+
+        renderCalendars();
+
 
         toast(
-          "Title and date are required 🌷"
+          "Saved to your future garden 📅"
         );
 
-        return;
-
       }
+    );
 
-
-      saveDates.push({
-
-        id:
-          crypto.randomUUID(),
-
-        title:
-          data.title,
-
-        type:
-          data.type || "",
-
-        date:
-          data.date,
-
-        time:
-          data.time || "",
-
-        venue:
-          data.venue || "",
-
-        reminder:
-          data.reminder ||
-          "None",
-
-        remarks:
-          data.remarks || "",
-
-        createdAt:
-          new Date()
-            .toISOString()
-
-      });
-
-
-      saveDatesData();
-
-
-      event.currentTarget
-        .reset();
-
-
-      renderSaveDates();
-
-      renderHomeDeadlines();
-
-      renderCalendars();
-
-
-      toast(
-        "Saved to your future garden 📅"
-      );
-
-    }
-  );
+}
 
 
 function renderSaveDates() {
 
-  const container =
-    $("saveDatesList");
+  if (
+    !$("saveDatesList")
+  )
+    return;
 
 
   const rows =
@@ -1484,27 +2197,32 @@ function renderSaveDates() {
 
 
   if (
-    rows.length === 0
+    rows.length ===
+    0
   ) {
 
-    container.innerHTML = `
+    $("saveDatesList")
+      .innerHTML = `
 
-      <div class="empty">
+        <div
+          class="empty"
+        >
 
-        📅 No future dates yet.
+          📅 No future dates yet.
 
-        Add your first one. 🦋
+          Add your first one. 🦋
 
-      </div>
+        </div>
 
-    `;
+      `;
 
     return;
 
   }
 
 
-  container.innerHTML =
+  $("saveDatesList")
+    .innerHTML =
 
     rows
       .map(
@@ -1526,21 +2244,29 @@ function renderSaveDates() {
             badge =
               "Past";
 
-          } else if (
-            d === 0
+          }
+
+          else if (
+            d ===
+            0
           ) {
 
             badge =
               "TODAY 🎀";
 
-          } else if (
-            d === 1
+          }
+
+          else if (
+            d ===
+            1
           ) {
 
             badge =
               "Tomorrow 🦋";
 
-          } else {
+          }
+
+          else {
 
             badge =
               `${d} days`;
@@ -1645,7 +2371,9 @@ function renderSaveDates() {
 
                   ? `
                     <div
-                      style="margin-top:8px"
+                      style="
+                        margin-top:8px
+                      "
                     >
 
                       <span
@@ -1686,10 +2414,16 @@ function renderSaveDates() {
 
 
               <button
+
                 class="danger-btn"
-                style="margin-top:10px"
+
+                style="
+                  margin-top:10px
+                "
+
                 onclick=
                   "deleteSaveDate('${item.id}')"
+
               >
 
                 Delete
@@ -1702,7 +2436,6 @@ function renderSaveDates() {
 
         }
       )
-
       .join("");
 
 }
@@ -1739,325 +2472,922 @@ window.deleteSaveDate =
    EVENTS ELIXIR
    ============================================================ */
 
-$("eventForm")
-  .addEventListener(
-    "submit",
-    event => {
 
-      event.preventDefault();
+/*
+   New behaviour:
 
-
-      const data =
-        Object.fromEntries(
-          new FormData(
-            event.currentTarget
-          ).entries()
-        );
+   1. Existing participated events are shown first.
+   2. Add Event button stays at the top.
+   3. Form is hidden when opening Events Elixir.
+   4. Form appears only after tapping Add Event.
+   5. After saving, form closes automatically.
+*/
 
 
-      if (
-        !data.name ||
-        !data.date
-      ) {
-
-        toast(
-          "Event name and date are required ✨"
-        );
-
-        return;
-
-      }
-
-
-      events.push({
-
-        id:
-          crypto.randomUUID(),
-
-        name:
-          data.name,
-
-        type:
-          data.type ||
-          "Event",
-
-        date:
-          data.date,
-
-        time:
-          data.time ||
-          "",
-
-        organization:
-          data.organization ||
-          "",
-
-        venue:
-          data.venue ||
-          "",
-
-        result:
-          data.result ||
-          "",
-
-        prize:
-          data.prize ||
-          "",
-
-        certificate:
-          data.certificate ||
-          "Not received",
-
-        remarks:
-          data.remarks ||
-          "",
-
-        createdAt:
-          new Date()
-            .toISOString()
-
-      });
-
-
-      saveEvents();
-
-
-      event.currentTarget
-        .reset();
-
-
-      renderEvents();
-
-
-      toast(
-        "Event added to Events Elixir ✨"
-      );
-
-    }
-  );
-
-
-function renderEvents() {
-
-  const container =
-    $("eventsList");
-
-
-  const rows =
-    [
-      ...events
-    ]
-
-      .sort(
-        (
-          a,
-          b
-        ) =>
-          b.date.localeCompare(
-            a.date
-          )
-      );
-
+function createEventsStyles() {
 
   if (
-    rows.length === 0
+    $("eventsDynamicStyles")
   ) {
-
-    container.innerHTML = `
-
-      <div class="empty">
-
-        ✨ No events yet.
-
-        Your journey starts here. 🌸
-
-      </div>
-
-    `;
 
     return;
 
   }
 
 
-  container.innerHTML =
-
-    rows
-      .map(
-        item => `
-
-          <article
-            class="event-item"
-          >
-
-            <div
-              class="item-row"
-            >
-
-              <div>
-
-                <div
-                  class="item-title"
-                >
-
-                  ${escapeHtml(
-                    item.name
-                  )}
-
-                </div>
+  const style =
+    document.createElement(
+      "style"
+    );
 
 
-                <div
-                  class="item-meta"
-                >
-
-                  📅
-                  ${formatDate(
-                    item.date
-                  )}
+  style.id =
+    "eventsDynamicStyles";
 
 
-                  ${
-                    item.time
+  style.textContent = `
 
-                      ? `
-                        · ⏰
-                        ${escapeHtml(
-                          item.time
-                        )}
-                      `
+    .events-view-header {
 
-                      : ""
-                  }
+      display:
+        flex;
 
+      align-items:
+        center;
 
-                  ${
-                    item.organization
+      justify-content:
+        space-between;
 
-                      ? `
-                        <br>
-                        🏫
-                        ${escapeHtml(
-                          item.organization
-                        )}
-                      `
+      gap:
+        12px;
 
-                      : ""
-                  }
+      margin:
+        4px 0 14px;
 
+      padding:
+        14px;
 
-                  ${
-                    item.venue
+      border-radius:
+        20px;
 
-                      ? `
-                        <br>
-                        📍
-                        ${escapeHtml(
-                          item.venue
-                        )}
-                      `
+      background:
+        linear-gradient(
+          135deg,
+          #fff0f7,
+          #fff8fb
+        );
 
-                      : ""
-                  }
+      border:
+        1px solid
+        rgba(
+          255,
+          112,
+          168,
+          0.18
+        );
 
-
-                  ${
-                    item.result
-
-                      ? `
-                        <br>
-                        🏆
-                        ${escapeHtml(
-                          item.result
-                        )}
-                      `
-
-                      : ""
-                  }
+    }
 
 
-                  ${
-                    item.prize
+    .events-view-title {
 
-                      ? `
-                        <br>
-                        🥇
-                        ${escapeHtml(
-                          item.prize
-                        )}
-                      `
+      font-weight:
+        800;
 
-                      : ""
-                  }
+      font-size:
+        18px;
+
+    }
 
 
-                  <br>
+    .events-view-subtitle {
 
-                  📜 Certificate:
-                  ${escapeHtml(
-                    item.certificate
-                  )}
+      margin-top:
+        3px;
 
-                </div>
+      font-size:
+        12px;
 
-              </div>
+      line-height:
+        1.4;
+
+      opacity:
+        0.72;
+
+    }
 
 
-              <span
-                class="badge"
+    .events-add-button {
+
+      flex-shrink:
+        0;
+
+      border:
+        0;
+
+      border-radius:
+        14px;
+
+      padding:
+        11px 14px;
+
+      background:
+        #ff70a8;
+
+      color:
+        white;
+
+      font:
+        inherit;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      box-shadow:
+        0 7px 18px
+        rgba(
+          255,
+          112,
+          168,
+          0.22
+        );
+
+    }
+
+
+    .events-form-box {
+
+      margin-bottom:
+        14px;
+
+      padding:
+        14px;
+
+      border-radius:
+        20px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.85
+        );
+
+      border:
+        1px solid
+        rgba(
+          255,
+          112,
+          168,
+          0.16
+        );
+
+    }
+
+
+    .events-history-title {
+
+      margin:
+        18px 0 10px;
+
+      font-size:
+        16px;
+
+      font-weight:
+        800;
+
+    }
+
+  `;
+
+
+  document.head.appendChild(
+    style
+  );
+
+}
+
+
+function setupEventsElixir() {
+
+  const form =
+    $("eventForm");
+
+
+  const list =
+    $("eventsList");
+
+
+  if (
+    !form ||
+    !list
+  ) {
+
+    return;
+
+  }
+
+
+  createEventsStyles();
+
+
+  /*
+     Hide the form initially.
+  */
+
+  form.style.display =
+    "none";
+
+
+  form.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  if (
+    !$("eventsViewHeader")
+  ) {
+
+    const header =
+      document.createElement(
+        "div"
+      );
+
+
+    header.id =
+      "eventsViewHeader";
+
+
+    header.className =
+      "events-view-header";
+
+
+    header.innerHTML = `
+
+      <div>
+
+        <div
+          class="events-view-title"
+        >
+
+          🏆 What I Participated In
+
+        </div>
+
+
+        <div
+          class="events-view-subtitle"
+        >
+
+          Your events, symposiums,
+          competitions and achievements
+          live here. ✨
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        id="eventsAddButton"
+        class="events-add-button"
+      >
+
+        ➕ Add Event
+
+      </button>
+
+    `;
+
+
+    list.parentNode
+      .insertBefore(
+        header,
+        list
+      );
+
+  }
+
+
+  const addButton =
+    $("eventsAddButton");
+
+
+  if (
+    addButton &&
+    !addButton.dataset.bound
+  ) {
+
+    addButton.dataset.bound =
+      "yes";
+
+
+    addButton.addEventListener(
+      "click",
+      () => {
+
+        if (
+          state.eventsFormOpen
+        ) {
+
+          closeEventForm();
+
+        }
+
+        else {
+
+          openEventForm();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  updateEventsFormState();
+
+}
+
+
+function updateEventsFormState() {
+
+  const form =
+    $("eventForm");
+
+
+  const button =
+    $("eventsAddButton");
+
+
+  if (
+    !form
+  )
+    return;
+
+
+  if (
+    state.eventsFormOpen
+  ) {
+
+    form.style.display =
+      "";
+
+
+    form.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+
+    if (
+      button
+    ) {
+
+      button.textContent =
+        "← My Events";
+
+    }
+
+  }
+
+  else {
+
+    form.style.display =
+      "none";
+
+
+    form.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+
+    if (
+      button
+    ) {
+
+      button.textContent =
+        "➕ Add Event";
+
+    }
+
+  }
+
+}
+
+
+function openEventForm() {
+
+  const form =
+    $("eventForm");
+
+
+  if (
+    !form
+  )
+    return;
+
+
+  state.eventsFormOpen =
+    true;
+
+
+  updateEventsFormState();
+
+
+  setTimeout(
+    () => {
+
+      form.scrollIntoView(
+        {
+
+          behavior:
+            "smooth",
+
+          block:
+            "start"
+
+        }
+      );
+
+    },
+    50
+  );
+
+
+  toast(
+    "Okay pookie, tell me what you participated in ✨"
+  );
+
+}
+
+
+function closeEventForm() {
+
+  state.eventsFormOpen =
+    false;
+
+
+  updateEventsFormState();
+
+
+  const list =
+    $("eventsList");
+
+
+  if (
+    list
+  ) {
+
+    list.scrollIntoView(
+      {
+
+        behavior:
+          "smooth",
+
+        block:
+          "start"
+
+      }
+    );
+
+  }
+
+}
+
+
+if (
+  $("eventForm")
+) {
+
+  $("eventForm")
+    .addEventListener(
+      "submit",
+      event => {
+
+        event.preventDefault();
+
+
+        const data =
+          Object.fromEntries(
+            new FormData(
+              event.currentTarget
+            ).entries()
+          );
+
+
+        if (
+          !data.name ||
+          !data.date
+        ) {
+
+          toast(
+            "Event name and date are required ✨"
+          );
+
+          return;
+
+        }
+
+
+        events.push({
+
+          id:
+            crypto.randomUUID(),
+
+          name:
+            data.name,
+
+          type:
+            data.type ||
+            "Event",
+
+          date:
+            data.date,
+
+          time:
+            data.time ||
+            "",
+
+          organization:
+            data.organization ||
+            "",
+
+          venue:
+            data.venue ||
+            "",
+
+          result:
+            data.result ||
+            "",
+
+          prize:
+            data.prize ||
+            "",
+
+          certificate:
+            data.certificate ||
+            "Not received",
+
+          remarks:
+            data.remarks ||
+            "",
+
+          createdAt:
+            new Date()
+              .toISOString()
+
+        });
+
+
+        saveEvents();
+
+
+        event.currentTarget
+          .reset();
+
+
+        /*
+           Close form after saving.
+        */
+
+        state.eventsFormOpen =
+          false;
+
+
+        updateEventsFormState();
+
+
+        renderEvents();
+
+
+        toast(
+          "Event safely stored in your Elixir ✨"
+        );
+
+      }
+    );
+
+}
+
+
+function renderEvents() {
+
+  if (
+    !$("eventsList")
+  )
+    return;
+
+
+  setupEventsElixir();
+
+
+  const rows =
+    [
+      ...events
+    ]
+      .sort(
+        (
+          a,
+          b
+        ) => {
+
+          const dateCompare =
+            b.date.localeCompare(
+              a.date
+            );
+
+
+          if (
+            dateCompare !==
+            0
+          ) {
+
+            return dateCompare;
+
+          }
+
+
+          return String(
+            b.createdAt ||
+            ""
+          ).localeCompare(
+            String(
+              a.createdAt ||
+              ""
+            )
+          );
+
+        }
+      );
+
+
+  if (
+    rows.length ===
+    0
+  ) {
+
+    $("eventsList")
+      .innerHTML = `
+
+        <div
+          class="empty"
+        >
+
+          🌸
+
+          <br><br>
+
+          No participated events yet.
+
+          <br><br>
+
+          Your scrapbook is suspiciously
+          empty.
+
+          <br>
+
+          Tap
+          <strong>
+            ➕ Add Event
+          </strong>
+          and give me some lore. 👀
+
+        </div>
+
+      `;
+
+    return;
+
+  }
+
+
+  $("eventsList")
+    .innerHTML = `
+
+      <div
+        class="events-history-title"
+      >
+
+        🏆 Your Participation History
+
+      </div>
+
+
+      <div
+        class="muted"
+        style="
+          margin-bottom:10px
+        "
+      >
+
+        ${rows.length}
+        ${
+          rows.length ===
+          1
+            ? "event"
+            : "events"
+        }
+        recorded.
+
+        Look at you collecting
+        experiences. 👀✨
+
+      </div>
+
+
+      ${
+
+        rows
+          .map(
+            item => `
+
+              <article
+                class="event-item"
               >
 
-                ${escapeHtml(
-                  item.type ||
-                  "Event"
-                )}
+                <div
+                  class="item-row"
+                >
 
-              </span>
+                  <div>
 
-            </div>
+                    <div
+                      class="item-title"
+                    >
+
+                      ${escapeHtml(
+                        item.name
+                      )}
+
+                    </div>
 
 
-            ${
-              item.remarks
+                    <div
+                      class="item-meta"
+                    >
 
-                ? `
-                  <div
-                    class="remarks"
-                  >
+                      📅
+                      ${formatDate(
+                        item.date
+                      )}
 
-                    🌸
-                    ${escapeHtml(
-                      item.remarks
-                    )}
+
+                      ${
+                        item.time
+
+                          ? `
+                            · ⏰
+                            ${escapeHtml(
+                              item.time
+                            )}
+                          `
+
+                          : ""
+                      }
+
+
+                      ${
+                        item.organization
+
+                          ? `
+                            <br>
+                            🏫
+                            ${escapeHtml(
+                              item.organization
+                            )}
+                          `
+
+                          : ""
+                      }
+
+
+                      ${
+                        item.venue
+
+                          ? `
+                            <br>
+                            📍
+                            ${escapeHtml(
+                              item.venue
+                            )}
+                          `
+
+                          : ""
+                      }
+
+
+                      ${
+                        item.result
+
+                          ? `
+                            <br>
+                            🏆
+                            ${escapeHtml(
+                              item.result
+                            )}
+                          `
+
+                          : ""
+                      }
+
+
+                      ${
+                        item.prize
+
+                          ? `
+                            <br>
+                            🥇
+                            ${escapeHtml(
+                              item.prize
+                            )}
+                          `
+
+                          : ""
+                      }
+
+
+                      <br>
+
+                      📜 Certificate:
+                      ${escapeHtml(
+                        item.certificate
+                      )}
+
+                    </div>
 
                   </div>
-                `
-
-                : ""
-            }
 
 
-            <button
+                  <span
+                    class="badge"
+                  >
 
-              class="danger-btn"
+                    ${escapeHtml(
+                      item.type ||
+                      "Event"
+                    )}
 
-              style="margin-top:10px"
+                  </span>
 
-              onclick=
-                "deleteEvent('${item.id}')"
+                </div>
 
-            >
 
-              Delete
+                ${
+                  item.remarks
 
-            </button>
+                    ? `
+                      <div
+                        class="remarks"
+                      >
 
-          </article>
+                        🌸
+                        ${escapeHtml(
+                          item.remarks
+                        )}
 
-        `
-      )
+                      </div>
+                    `
 
-      .join("");
+                    : ""
+                }
+
+
+                <button
+
+                  class="danger-btn"
+
+                  style="
+                    margin-top:10px
+                  "
+
+                  onclick=
+                    "deleteEvent('${item.id}')"
+
+                >
+
+                  Delete
+
+                </button>
+
+              </article>
+
+            `
+          )
+
+          .join("")
+
+      }
+
+    `;
 
 }
 
@@ -2135,6 +3465,12 @@ async function sha256(
 
 function openLockModal() {
 
+  if (
+    !$("lockModal")
+  )
+    return;
+
+
   $("lockModal")
     .classList
     .add(
@@ -2149,14 +3485,30 @@ function openLockModal() {
     );
 
 
-  $("passwordInput")
-    .value = "";
+  if (
+    $("passwordInput")
+  ) {
+
+    $("passwordInput")
+      .value =
+      "";
+
+  }
 
 
   setTimeout(
-    () =>
-      $("passwordInput")
-        .focus(),
+    () => {
+
+      if (
+        $("passwordInput")
+      ) {
+
+        $("passwordInput")
+          .focus();
+
+      }
+
+    },
     70
   );
 
@@ -2164,6 +3516,12 @@ function openLockModal() {
 
 
 function closeLockModal() {
+
+  if (
+    !$("lockModal")
+  )
+    return;
+
 
   $("lockModal")
     .classList
@@ -2181,118 +3539,152 @@ function closeLockModal() {
 }
 
 
-$("academicLockButton")
-  .addEventListener(
-    "click",
-    () => {
+if (
+  $("academicLockButton")
+) {
 
-      if (
-        state.academicEditMode
-      ) {
-
-        finishAcademicEdit();
-
-      } else {
-
-        openLockModal();
-
-      }
-
-    }
-  );
-
-
-$("unlockFromAcademic")
-  .addEventListener(
-    "click",
-    openLockModal
-  );
-
-
-$("closeModal")
-  .addEventListener(
-    "click",
-    closeLockModal
-  );
-
-
-$("lockModal")
-  .addEventListener(
-    "click",
-    event => {
-
-      if (
-        event.target ===
-        $("lockModal")
-      ) {
-
-        closeLockModal();
-
-      }
-
-    }
-  );
-
-
-$("unlockForm")
-  .addEventListener(
-    "submit",
-    async event => {
-
-      event.preventDefault();
-
-
-      const entered =
-        $("passwordInput")
-          .value;
-
-
-      try {
-
-        const hash =
-          await sha256(
-            entered
-          );
-
+  $("academicLockButton")
+    .addEventListener(
+      "click",
+      () => {
 
         if (
-          hash !==
-          ACADEMIC_PASSWORD_HASH
+          state.academicEditMode
         ) {
 
-          toast(
-            "Incorrect password 🔐"
-          );
-
-          return;
+          finishAcademicEdit();
 
         }
 
+        else {
 
-        state.academicEditMode =
-          true;
+          openLockModal();
 
-
-        closeLockModal();
-
-
-        renderAcademic();
-
-
-        toast(
-          "Academic editing unlocked 🦋"
-        );
-
-      } catch {
-
-        toast(
-          "Unable to unlock right now."
-        );
+        }
 
       }
+    );
 
-    }
-  );
+}
+
+
+if (
+  $("unlockFromAcademic")
+) {
+
+  $("unlockFromAcademic")
+    .addEventListener(
+      "click",
+      openLockModal
+    );
+
+}
+
+
+if (
+  $("closeModal")
+) {
+
+  $("closeModal")
+    .addEventListener(
+      "click",
+      closeLockModal
+    );
+
+}
+
+
+if (
+  $("lockModal")
+) {
+
+  $("lockModal")
+    .addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          $("lockModal")
+        ) {
+
+          closeLockModal();
+
+        }
+
+      }
+    );
+
+}
+
+
+if (
+  $("unlockForm")
+) {
+
+  $("unlockForm")
+    .addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        const entered =
+          $("passwordInput")
+            .value;
+
+
+        try {
+
+          const hash =
+            await sha256(
+              entered
+            );
+
+
+          if (
+            hash !==
+            ACADEMIC_PASSWORD_HASH
+          ) {
+
+            toast(
+              "Incorrect password 🔐"
+            );
+
+            return;
+
+          }
+
+
+          state.academicEditMode =
+            true;
+
+
+          closeLockModal();
+
+
+          renderAcademic();
+
+
+          toast(
+            "Academic editing unlocked 🦋"
+          );
+
+        }
+
+        catch {
+
+          toast(
+            "Unable to unlock right now."
+          );
+
+        }
+
+      }
+    );
+
+}
 
 
 function updateAcademicEditButtons() {
@@ -2301,7 +3693,9 @@ function updateAcademicEditButtons() {
     $("academicEditButton");
 
 
-  if (button) {
+  if (
+    button
+  ) {
 
     button.textContent =
       state.academicEditMode
@@ -2315,7 +3709,9 @@ function updateAcademicEditButtons() {
     $("academicLockButton");
 
 
-  if (externalButton) {
+  if (
+    externalButton
+  ) {
 
     externalButton.textContent =
       state.academicEditMode
@@ -2337,6 +3733,16 @@ function finishAcademicEdit() {
 
 
   renderAcademic();
+
+
+  if (
+    state.currentPage ===
+    "academicGrowth"
+  ) {
+
+    renderAcademicGrowth();
+
+  }
 
 
   toast(
@@ -2411,60 +3817,66 @@ function getRecord(
    ACADEMIC YEAR
    ============================================================ */
 
-$("yearTabs")
-  .addEventListener(
-    "click",
-    event => {
+if (
+  $("yearTabs")
+) {
 
-      const button =
-        event.target.closest(
-          "[data-year]"
-        );
+  $("yearTabs")
+    .addEventListener(
+      "click",
+      event => {
 
-
-      if (
-        !button
-      )
-        return;
+        const button =
+          event.target.closest(
+            "[data-year]"
+          );
 
 
-      state.currentYear =
-        Number(
-          button.dataset.year
-        );
-
-
-      const semesters =
-        getYearSemesters(
-          state.currentYear
-        );
-
-
-      state.currentSemester =
-        semesters[0];
-
-
-      document
-        .querySelectorAll(
-          "#yearTabs button"
+        if (
+          !button
         )
-        .forEach(
-          item => {
+          return;
 
-            item.classList.toggle(
-              "active",
-              item ===
+
+        state.currentYear =
+          Number(
+            button.dataset.year
+          );
+
+
+        const semesters =
+          getYearSemesters(
+            state.currentYear
+          );
+
+
+        state.currentSemester =
+          semesters[0];
+
+
+        document
+          .querySelectorAll(
+            "#yearTabs button"
+          )
+          .forEach(
+            item => {
+
+              item.classList.toggle(
+                "active",
+                item ===
                 button
-            );
+              );
 
-          }
-        );
+            }
+          );
 
 
-      renderAcademic();
+        renderAcademic();
 
-    }
-  );
+      }
+    );
+
+}
 
 
 function getYearSemesters(
@@ -2495,35 +3907,49 @@ function getYearSemesters(
 
 function renderAcademic() {
 
-  /*
-     Academic information is ALWAYS visible.
-
-     Password is required only when the
-     user wants to EDIT the data.
-  */
-
-  $("academicLocked")
-    .classList
-    .add(
-      "hidden"
-    );
+  if (
+    !$("academicContent")
+  )
+    return;
 
 
-  $("academicUnlocked")
-    .classList
-    .remove(
-      "hidden"
-    );
+  if (
+    $("academicLocked")
+  ) {
+
+    $("academicLocked")
+      .classList
+      .add(
+        "hidden"
+      );
+
+  }
+
+
+  if (
+    $("academicUnlocked")
+  ) {
+
+    $("academicUnlocked")
+      .classList
+      .remove(
+        "hidden"
+      );
+
+  }
 
 
   const yearLabel =
-    state.currentYear === 1
+    state.currentYear ===
+      1
       ? "1st"
-      : state.currentYear === 2
-      ? "2nd"
-      : state.currentYear === 3
-      ? "3rd"
-      : "4th";
+      : state.currentYear ===
+        2
+        ? "2nd"
+        : state.currentYear ===
+          3
+          ? "3rd"
+          : "4th";
 
 
   const yearSemesters =
@@ -2546,7 +3972,9 @@ function renderAcademic() {
           <div>
 
             <h2
-              style="margin:0"
+              style="
+                margin:0
+              "
             >
 
               🌱
@@ -2560,12 +3988,11 @@ function renderAcademic() {
               class="muted"
             >
 
-              Your academic marks
-              and grades are always
-              visible.
+              Your marks and grades
+              are always visible.
 
-              Editing requires
-              your password.
+              Editing requires your
+              password.
 
             </div>
 
@@ -2598,7 +4025,9 @@ function renderAcademic() {
 
 
             <div
-              style="font-size:30px"
+              style="
+                font-size:30px
+              "
             >
 
               🦋
@@ -2613,7 +4042,9 @@ function renderAcademic() {
         <div
           class="semester-tabs"
           id="academicModeTabs"
-          style="margin-top:15px"
+          style="
+            margin-top:15px
+          "
         >
 
           <button
@@ -2683,7 +4114,9 @@ function renderAcademic() {
 
           finishAcademicEdit();
 
-        } else {
+        }
+
+        else {
 
           openLockModal();
 
@@ -2732,7 +4165,9 @@ function renderAcademic() {
       yearSemesters
     );
 
-  } else if (
+  }
+
+  else if (
     state.academicMode ===
     "practical"
   ) {
@@ -2741,7 +4176,9 @@ function renderAcademic() {
       yearSemesters
     );
 
-  } else {
+  }
+
+  else {
 
     renderCGPA();
 
@@ -2798,7 +4235,9 @@ function renderTheory(
       >
 
         <h3
-          style="margin:0"
+          style="
+            margin:0
+          "
         >
 
           📚 Theory
@@ -2822,7 +4261,9 @@ function renderTheory(
         <div
           id="theorySemesterTabs"
           class="semester-tabs"
-          style="margin-top:14px"
+          style="
+            margin-top:14px
+          "
         >
 
           ${tabs}
@@ -2902,392 +4343,394 @@ function renderTheorySubjects() {
   $("theorySubjects")
     .innerHTML =
 
-      courses
-        .map(
-          course => {
+    courses
+      .map(
+        course => {
 
-            const index =
-              semester.courses
-                .indexOf(
-                  course
-                );
-
-
-            const record =
-              getRecord(
-                state.currentSemester,
-                index
+          const index =
+            semester.courses
+              .indexOf(
+                course
               );
 
 
-            const cat1Number =
-              Number(
-                record.cat1
-              );
+          const record =
+            getRecord(
+              state.currentSemester,
+              index
+            );
 
 
-            const cat2Number =
-              Number(
-                record.cat2
-              );
+          const cat1Number =
+            Number(
+              record.cat1
+            );
 
 
-            const cat1 =
-              Number.isFinite(
-                cat1Number
-              )
-                ? cat1Number
-                : null;
+          const cat2Number =
+            Number(
+              record.cat2
+            );
 
 
-            const cat2 =
-              Number.isFinite(
-                cat2Number
-              )
-                ? cat2Number
-                : null;
+          const cat1 =
+            Number.isFinite(
+              cat1Number
+            )
+              ? cat1Number
+              : null;
 
 
-            return `
+          const cat2 =
+            Number.isFinite(
+              cat2Number
+            )
+              ? cat2Number
+              : null;
 
-              <div
-                class="subject-card"
-              >
 
-                <div
-                  class="subject-code"
-                >
-
-                  ${escapeHtml(
-                    course.code
-                  )}
-
-                </div>
-
-
-                <div
-                  class="subject-name"
-                >
-
-                  ${escapeHtml(
-                    course.title
-                  )}
-
-                </div>
-
-
-                <div
-                  class="subject-meta"
-                >
-
-                  Category:
-                  ${escapeHtml(
-                    course.category
-                  )}
-
-                  ·
-
-                  Credits:
-                  ${course.credits}
-
-                </div>
-
-
-                <div
-                  class="subject-fields"
-                >
-
-                  <label>
-
-                    CAT 1
-
-                    <span
-                      style="
-                        color:#ff70a8;
-                        font-size:9px
-                      "
-                    >
-                      /100
-                    </span>
-
-
-                    <input
-
-                      type="number"
-
-                      min="0"
-
-                      max="100"
-
-                      step="0.01"
-
-                      value="${
-                        cat1 === null
-                          ? ""
-                          : cat1
-                      }"
-
-                      ${
-                        state.academicEditMode
-                          ? ""
-                          : "disabled"
-                      }
-
-                      data-index="${index}"
-
-                      data-field="cat1"
-
-                    >
-
-                  </label>
-
-
-                  <label>
-
-                    CAT 2
-
-                    <span
-                      style="
-                        color:#ff70a8;
-                        font-size:9px
-                      "
-                    >
-                      /100
-                    </span>
-
-
-                    <input
-
-                      type="number"
-
-                      min="0"
-
-                      max="100"
-
-                      step="0.01"
-
-                      value="${
-                        cat2 === null
-                          ? ""
-                          : cat2
-                      }"
-
-                      ${
-                        state.academicEditMode
-                          ? ""
-                          : "disabled"
-                      }
-
-                      data-index="${index}"
-
-                      data-field="cat2"
-
-                    >
-
-                  </label>
-
-
-                  <label>
-
-                    Semester Grade
-
-                    <select
-
-                      ${
-                        state.academicEditMode
-                          ? ""
-                          : "disabled"
-                      }
-
-                      data-index="${index}"
-
-                      data-field="grade"
-
-                    >
-
-                      ${gradeOptions(
-                        record.grade
-                      )}
-
-                    </select>
-
-                  </label>
-
-                </div>
-
-
-                <div
-                  class="remarks"
-                >
-
-                  CAT 1:
-
-                  ${
-                    cat1 === null
-                      ? "—"
-                      : cat1.toFixed(2) + "%"
-                  }
-
-                  &nbsp; · &nbsp;
-
-                  CAT 2:
-
-                  ${
-                    cat2 === null
-                      ? "—"
-                      : cat2.toFixed(2) + "%"
-                  }
-
-                </div>
-
-              </div>
-
-            `;
-
-          }
-        )
-
-        .join("") + `
-
-
-          <div
-            class="academic-section"
-          >
+          return `
 
             <div
-              class="calc-strip"
+              class="subject-card"
             >
 
               <div
-                class="stat-box"
+                class="subject-code"
               >
 
-                <div
-                  class="stat-label"
-                >
+                ${escapeHtml(
+                  course.code
+                )}
+
+              </div>
+
+
+              <div
+                class="subject-name"
+              >
+
+                ${escapeHtml(
+                  course.title
+                )}
+
+              </div>
+
+
+              <div
+                class="subject-meta"
+              >
+
+                Category:
+                ${escapeHtml(
+                  course.category
+                )}
+
+                ·
+
+                Credits:
+                ${course.credits}
+
+              </div>
+
+
+              <div
+                class="subject-fields"
+              >
+
+                <label>
 
                   CAT 1
 
-                </div>
+                  <span
+                    style="
+                      color:#ff70a8;
+                      font-size:9px
+                    "
+                  >
+                    /100
+                  </span>
 
 
-                <div
-                  id="liveCat1"
-                  class="stat-value"
-                >
+                  <input
 
-                  ${
-                    summary.cat1Percentage
-                      .toFixed(2)
-                  }%
+                    type="number"
 
-                </div>
+                    min="0"
 
-              </div>
+                    max="100"
+
+                    step="0.01"
+
+                    value="${
+                      cat1 ===
+                      null
+                        ? ""
+                        : cat1
+                    }"
+
+                    ${
+                      state.academicEditMode
+                        ? ""
+                        : "disabled"
+                    }
+
+                    data-index="${index}"
+
+                    data-field="cat1"
+
+                  >
+
+                </label>
 
 
-              <div
-                class="stat-box"
-              >
-
-                <div
-                  class="stat-label"
-                >
+                <label>
 
                   CAT 2
 
-                </div>
+                  <span
+                    style="
+                      color:#ff70a8;
+                      font-size:9px
+                    "
+                  >
+                    /100
+                  </span>
 
 
-                <div
-                  id="liveCat2"
-                  class="stat-value"
-                >
+                  <input
 
-                  ${
-                    summary.cat2Percentage
-                      .toFixed(2)
-                  }%
+                    type="number"
 
-                </div>
+                    min="0"
+
+                    max="100"
+
+                    step="0.01"
+
+                    value="${
+                      cat2 ===
+                      null
+                        ? ""
+                        : cat2
+                    }"
+
+                    ${
+                      state.academicEditMode
+                        ? ""
+                        : "disabled"
+                    }
+
+                    data-index="${index}"
+
+                    data-field="cat2"
+
+                  >
+
+                </label>
+
+
+                <label>
+
+                  Semester Grade
+
+                  <select
+
+                    ${
+                      state.academicEditMode
+                        ? ""
+                        : "disabled"
+                    }
+
+                    data-index="${index}"
+
+                    data-field="grade"
+
+                  >
+
+                    ${gradeOptions(
+                      record.grade
+                    )}
+
+                  </select>
+
+                </label>
 
               </div>
 
 
               <div
-                class="stat-box"
+                class="remarks"
               >
 
-                <div
-                  class="stat-label"
-                >
+                CAT 1:
 
-                  GPA
+                ${
+                  cat1 ===
+                  null
+                    ? "—"
+                    : cat1.toFixed(
+                        2
+                      ) + "%"
+                }
 
-                </div>
+                &nbsp; · &nbsp;
+
+                CAT 2:
+
+                ${
+                  cat2 ===
+                  null
+                    ? "—"
+                    : cat2.toFixed(
+                        2
+                      ) + "%"
+                }
+
+              </div>
+
+            </div>
+
+          `;
+
+        }
+      )
+
+      .join("") + `
+
+        <div
+          class="academic-section"
+        >
+
+          <div
+            class="calc-strip"
+          >
+
+            <div
+              class="stat-box"
+            >
+
+              <div
+                class="stat-label"
+              >
+                CAT 1
+              </div>
 
 
-                <div
-                  id="liveGpa"
-                  class="stat-value"
-                >
+              <div
+                class="stat-value"
+              >
 
-                  ${
-                    summary.gpa
-                      .toFixed(2)
-                  }
-
-                </div>
+                ${
+                  summary.cat1Percentage
+                    .toFixed(
+                      2
+                    )
+                }%
 
               </div>
 
             </div>
 
 
-            ${
-              state.academicEditMode
+            <div
+              class="stat-box"
+            >
 
-                ? `
+              <div
+                class="stat-label"
+              >
+                CAT 2
+              </div>
 
-                  <button
-                    id="saveTheory"
-                    class="primary-btn"
-                  >
 
-                    Save Theory 🌷
+              <div
+                class="stat-value"
+              >
 
-                  </button>
+                ${
+                  summary.cat2Percentage
+                    .toFixed(
+                      2
+                    )
+                }%
 
-                `
+              </div>
 
-                : `
+            </div>
 
-                  <div
-                    class="muted"
-                    style="
-                      text-align:center;
-                      margin-top:10px
-                    "
-                  >
 
-                    🔒 Read-only.
+            <div
+              class="stat-box"
+            >
 
-                    Tap
-                    <strong>
-                      Edit Academic
-                    </strong>
-                    and enter your
-                    password to make
-                    changes.
+              <div
+                class="stat-label"
+              >
+                GPA
+              </div>
 
-                  </div>
 
-                `
-            }
+              <div
+                class="stat-value"
+              >
+
+                ${
+                  summary.gpa
+                    .toFixed(
+                      2
+                    )
+                }
+
+              </div>
+
+            </div>
 
           </div>
 
-        `;
+
+          ${
+            state.academicEditMode
+
+              ? `
+
+                <button
+                  id="saveTheory"
+                  class="primary-btn"
+                >
+
+                  Save Theory 🌷
+
+                </button>
+
+              `
+
+              : `
+
+                <div
+                  class="muted"
+                  style="
+                    text-align:center;
+                    margin-top:10px
+                  "
+                >
+
+                  🔒 Read-only.
+
+                  Tap
+                  <strong>
+                    Edit Academic
+                  </strong>
+                  to make changes.
+
+                </div>
+
+              `
+          }
+
+        </div>
+
+      `;
 
 
   bindAcademicInputs();
@@ -3356,7 +4799,9 @@ function renderPractical(
       >
 
         <h3
-          style="margin:0"
+          style="
+            margin:0
+          "
         >
 
           🧪 Practical
@@ -3377,7 +4822,9 @@ function renderPractical(
         <div
           id="practicalSemesterTabs"
           class="semester-tabs"
-          style="margin-top:14px"
+          style="
+            margin-top:14px
+          "
         >
 
           ${tabs}
@@ -3475,161 +4922,159 @@ function renderPracticalSubjects() {
   $("practicalSubjects")
     .innerHTML =
 
-      courses
-        .map(
-          course => {
+    courses
+      .map(
+        course => {
 
-            const index =
-              semester.courses
-                .indexOf(
-                  course
-                );
-
-
-            const record =
-              getRecord(
-                state.currentSemester,
-                index
+          const index =
+            semester.courses
+              .indexOf(
+                course
               );
 
 
-            return `
+          const record =
+            getRecord(
+              state.currentSemester,
+              index
+            );
+
+
+          return `
+
+            <div
+              class="subject-card"
+            >
 
               <div
-                class="subject-card"
+                class="subject-code"
               >
 
-                <div
-                  class="subject-code"
-                >
-
-                  ${escapeHtml(
-                    course.code
-                  )}
-
-                </div>
-
-
-                <div
-                  class="subject-name"
-                >
-
-                  ${escapeHtml(
-                    course.title
-                  )}
-
-                </div>
-
-
-                <div
-                  class="subject-meta"
-                >
-
-                  Category:
-                  ${escapeHtml(
-                    course.category
-                  )}
-
-                  ·
-
-                  Credits:
-                  ${course.credits}
-
-                </div>
-
-
-                <div
-                  class="subject-fields"
-                  style="
-                    grid-template-columns:1fr
-                  "
-                >
-
-                  <label>
-
-                    Practical Grade
-
-                    <select
-
-                      ${
-                        state.academicEditMode
-                          ? ""
-                          : "disabled"
-                      }
-
-                      data-index="${index}"
-
-                      data-field="practicalGrade"
-
-                    >
-
-                      ${gradeOptions(
-                        record.practicalGrade
-                      )}
-
-                    </select>
-
-                  </label>
-
-                </div>
+                ${escapeHtml(
+                  course.code
+                )}
 
               </div>
 
-            `;
 
+              <div
+                class="subject-name"
+              >
+
+                ${escapeHtml(
+                  course.title
+                )}
+
+              </div>
+
+
+              <div
+                class="subject-meta"
+              >
+
+                Category:
+                ${escapeHtml(
+                  course.category
+                )}
+
+                ·
+
+                Credits:
+                ${course.credits}
+
+              </div>
+
+
+              <div
+                class="subject-fields"
+                style="
+                  grid-template-columns:1fr
+                "
+              >
+
+                <label>
+
+                  Practical Grade
+
+                  <select
+
+                    ${
+                      state.academicEditMode
+                        ? ""
+                        : "disabled"
+                    }
+
+                    data-index="${index}"
+
+                    data-field="practicalGrade"
+
+                  >
+
+                    ${gradeOptions(
+                      record.practicalGrade
+                    )}
+
+                  </select>
+
+                </label>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }
+      )
+
+      .join("") + `
+
+        <div
+          class="academic-section"
+        >
+
+          ${
+            state.academicEditMode
+
+              ? `
+
+                <button
+                  id="savePractical"
+                  class="primary-btn"
+                >
+
+                  Save Practical 🧪
+
+                </button>
+
+              `
+
+              : `
+
+                <div
+                  class="muted"
+                  style="
+                    text-align:center
+                  "
+                >
+
+                  🔒 Read-only.
+
+                  Tap
+                  <strong>
+                    Edit Academic
+                  </strong>
+                  to change practical
+                  grades.
+
+                </div>
+
+              `
           }
-        )
 
-        .join("") + `
+        </div>
 
-
-          <div
-            class="academic-section"
-          >
-
-            ${
-              state.academicEditMode
-
-                ? `
-
-                  <button
-                    id="savePractical"
-                    class="primary-btn"
-                  >
-
-                    Save Practical 🧪
-
-                  </button>
-
-                `
-
-                : `
-
-                  <div
-                    class="muted"
-                    style="
-                      text-align:center
-                    "
-                  >
-
-                    🔒 Read-only.
-
-                    Tap
-                    <strong>
-                      Edit Academic
-                    </strong>
-                    and enter your
-                    password to change
-                    practical grades.
-
-                  </div>
-
-                `
-            }
-
-          </div>
-
-        `;
+      `;
 
 
   bindAcademicInputs();
@@ -3686,7 +5131,9 @@ function renderCGPA() {
           <div>
 
             <h3
-              style="margin:0"
+              style="
+                margin:0
+              "
             >
 
               🏆 Year CGPA
@@ -3709,7 +5156,9 @@ function renderCGPA() {
 
 
           <div
-            style="font-size:30px"
+            style="
+              font-size:30px
+            "
           >
 
             🌷
@@ -3721,7 +5170,9 @@ function renderCGPA() {
 
         <div
           class="calc-strip"
-          style="margin-top:14px"
+          style="
+            margin-top:14px
+          "
         >
 
           ${
@@ -3765,7 +5216,9 @@ function renderCGPA() {
                         ${
                           result
                             .gpa
-                            .toFixed(2)
+                            .toFixed(
+                              2
+                            )
                         }
 
                       </div>
@@ -3791,13 +5244,16 @@ function renderCGPA() {
           >
 
             ${
-              year === 1
+              year ===
+              1
                 ? "1st"
-                : year === 2
-                ? "2nd"
-                : year === 3
-                ? "3rd"
-                : "4th"
+                : year ===
+                  2
+                  ? "2nd"
+                  : year ===
+                    3
+                    ? "3rd"
+                    : "4th"
             }
 
             YEAR CGPA
@@ -3809,7 +5265,9 @@ function renderCGPA() {
             class="calc-big"
           >
 
-            ${cgpa.toFixed(2)}
+            ${cgpa.toFixed(
+              2
+            )}
 
           </div>
 
@@ -3908,7 +5366,8 @@ function gradeOptions(
           value="${grade}"
 
           ${
-            selected === grade
+            selected ===
+            grade
               ? "selected"
               : ""
           }
@@ -3978,9 +5437,9 @@ function bindAcademicInputs() {
 
             if (
               field ===
-                "cat1" ||
+              "cat1" ||
               field ===
-                "cat2"
+              "cat2"
             ) {
 
               const raw =
@@ -3996,7 +5455,9 @@ function bindAcademicInputs() {
                 record[field] =
                   "";
 
-              } else {
+              }
+
+              else {
 
                 const number =
                   Number(
@@ -4021,7 +5482,9 @@ function bindAcademicInputs() {
 
               }
 
-            } else {
+            }
+
+            else {
 
               record[field] =
                 event.target.value;
@@ -4038,6 +5501,16 @@ function bindAcademicInputs() {
             ) {
 
               renderTheorySubjects();
+
+            }
+
+
+            if (
+              state.currentPage ===
+              "academicGrowth"
+            ) {
+
+              renderAcademicGrowth();
 
             }
 
@@ -4102,11 +5575,8 @@ function calculateSemester(
 
         if (
           !record
-        ) {
-
+        )
           return;
-
-        }
 
 
         const credit =
@@ -4119,17 +5589,11 @@ function calculateSemester(
           !Number.isFinite(
             credit
           ) ||
-          credit <= 0
-        ) {
-
+          credit <=
+          0
+        )
           return;
 
-        }
-
-
-        /* -------------------------
-           THEORY
-           ------------------------- */
 
         if (
           course.section ===
@@ -4213,10 +5677,6 @@ function calculateSemester(
         }
 
 
-        /* -------------------------
-           PRACTICAL
-           ------------------------- */
-
         else if (
           course.section ===
           "practical"
@@ -4259,13 +5719,11 @@ function calculateSemester(
           theorySubjects
         : 0,
 
-
     cat2Percentage:
       theorySubjects
         ? cat2Total /
           theorySubjects
         : 0,
-
 
     gpa:
       gpaCredits
@@ -4308,11 +5766,8 @@ function calculateYearCGPA(
         if (
           semester.year !==
           year
-        ) {
-
+        )
           return;
-
-        }
 
 
         semester.courses
@@ -4335,11 +5790,8 @@ function calculateYearCGPA(
 
               if (
                 !record
-              ) {
-
+              )
                 return;
-
-              }
 
 
               const credit =
@@ -4352,20 +5804,17 @@ function calculateYearCGPA(
                 !Number.isFinite(
                   credit
                 ) ||
-                credit <= 0
-              ) {
-
+                credit <=
+                0
+              )
                 return;
-
-              }
 
 
               const grade =
                 course.section ===
                 "practical"
 
-                  ? record
-                      .practicalGrade
+                  ? record.practicalGrade
 
                   : record.grade;
 
@@ -4375,11 +5824,8 @@ function calculateYearCGPA(
                 GRADE_POINTS[
                   grade
                 ] === undefined
-              ) {
-
+              )
                 return;
-
-              }
 
 
               weighted +=
@@ -4423,6 +5869,16 @@ function saveAcademic() {
 
   renderAcademic();
 
+
+  if (
+    state.currentPage ===
+    "academicGrowth"
+  ) {
+
+    renderAcademicGrowth();
+
+  }
+
 }
 
 
@@ -4432,16 +5888,30 @@ function saveAcademic() {
 
 function renderCalendars() {
 
-  renderCalendar(
-    "miniCalendar",
-    "miniMonth"
-  );
+  if (
+    $("miniCalendar") &&
+    $("miniMonth")
+  ) {
+
+    renderCalendar(
+      "miniCalendar",
+      "miniMonth"
+    );
+
+  }
 
 
-  renderCalendar(
-    "fullCalendar",
-    "fullMonth"
-  );
+  if (
+    $("fullCalendar") &&
+    $("fullMonth")
+  ) {
+
+    renderCalendar(
+      "fullCalendar",
+      "fullMonth"
+    );
+
+  }
 
 }
 
@@ -4494,17 +5964,19 @@ function renderCalendar(
 
   $(titleId)
     .textContent =
-      state.calendar
-        .toLocaleDateString(
-          "en-IN",
-          {
-            month:
-              "long",
+    state.calendar
+      .toLocaleDateString(
+        "en-IN",
+        {
 
-            year:
-              "numeric"
-          }
-        );
+          month:
+            "long",
+
+          year:
+            "numeric"
+
+        }
+      );
 
 
   const container =
@@ -4539,8 +6011,12 @@ function renderCalendar(
 
 
   for (
-    let day = 1;
-    day <= days;
+    let day =
+      1;
+
+    day <=
+    days;
+
     day++
   ) {
 
@@ -4654,56 +6130,2477 @@ function moveMonth(
 }
 
 
-$("miniPrev")
-  .addEventListener(
-    "click",
-    () =>
-      moveMonth(-1)
-  );
+if (
+  $("miniPrev")
+) {
+
+  $("miniPrev")
+    .addEventListener(
+      "click",
+      () =>
+        moveMonth(
+          -1
+        )
+    );
+
+}
 
 
-$("miniNext")
-  .addEventListener(
-    "click",
-    () =>
-      moveMonth(1)
-  );
+if (
+  $("miniNext")
+) {
+
+  $("miniNext")
+    .addEventListener(
+      "click",
+      () =>
+        moveMonth(
+          1
+        )
+    );
+
+}
 
 
-$("fullPrev")
-  .addEventListener(
-    "click",
-    () =>
-      moveMonth(-1)
-  );
+if (
+  $("fullPrev")
+) {
+
+  $("fullPrev")
+    .addEventListener(
+      "click",
+      () =>
+        moveMonth(
+          -1
+        )
+    );
+
+}
 
 
-$("fullNext")
-  .addEventListener(
-    "click",
-    () =>
-      moveMonth(1)
-  );
+if (
+  $("fullNext")
+) {
+
+  $("fullNext")
+    .addEventListener(
+      "click",
+      () =>
+        moveMonth(
+          1
+        )
+    );
+
+}
 
 
 /* ============================================================
    ACADEMIC GARDEN ENTRY
    ============================================================ */
 
-$("openAcademicRace")
-  .addEventListener(
-    "click",
-    () => {
+if (
+  $("openAcademicRace")
+) {
 
-      showPage(
-        "academic"
+  $("openAcademicRace")
+    .addEventListener(
+      "click",
+      () => {
+
+        showPage(
+          "academic"
+        );
+
+
+        renderAcademic();
+
+      }
+    );
+
+}
+
+
+/* ============================================================
+   ACADEMIC GROWTH
+   ============================================================ */
+
+function getAcademicYearLabel(
+  year
+) {
+
+  return year ===
+    1
+    ? "1st Year"
+    : year ===
+      2
+      ? "2nd Year"
+      : year ===
+        3
+        ? "3rd Year"
+        : "4th Year";
+
+}
+
+
+function getSemesterMetrics(
+  semesterNumber
+) {
+
+  const semester =
+    CURRICULUM[
+      semesterNumber
+    ];
+
+
+  let cat1Total =
+    0;
+
+
+  let cat1Count =
+    0;
+
+
+  let cat2Total =
+    0;
+
+
+  let cat2Count =
+    0;
+
+
+  let theoryGradeCount =
+    0;
+
+
+  let practicalGradeCount =
+    0;
+
+
+  semester.courses
+    .forEach(
+      (
+        course,
+        index
+      ) => {
+
+        const record =
+          academic[
+            recordKey(
+              semesterNumber,
+              index
+            )
+          ];
+
+
+        if (
+          !record
+        )
+          return;
+
+
+        if (
+          course.section ===
+          "theory"
+        ) {
+
+          const cat1 =
+            Number(
+              record.cat1
+            );
+
+
+          const cat2 =
+            Number(
+              record.cat2
+            );
+
+
+          if (
+            Number.isFinite(
+              cat1
+            )
+          ) {
+
+            cat1Total +=
+              Math.min(
+                Math.max(
+                  cat1,
+                  0
+                ),
+                100
+              );
+
+            cat1Count++;
+
+          }
+
+
+          if (
+            Number.isFinite(
+              cat2
+            )
+          ) {
+
+            cat2Total +=
+              Math.min(
+                Math.max(
+                  cat2,
+                  0
+                ),
+                100
+              );
+
+            cat2Count++;
+
+          }
+
+
+          if (
+            record.grade &&
+            GRADE_POINTS[
+              record.grade
+            ] !== undefined
+          ) {
+
+            theoryGradeCount++;
+
+          }
+
+        }
+
+
+        if (
+          course.section ===
+          "practical"
+        ) {
+
+          if (
+            record.practicalGrade &&
+            GRADE_POINTS[
+              record.practicalGrade
+            ] !== undefined
+          ) {
+
+            practicalGradeCount++;
+
+          }
+
+        }
+
+      }
+    );
+
+
+  const semesterResult =
+    calculateSemester(
+      semesterNumber
+    );
+
+
+  return {
+
+    cat1:
+      cat1Count
+        ? cat1Total /
+          cat1Count
+        : null,
+
+    cat2:
+      cat2Count
+        ? cat2Total /
+          cat2Count
+        : null,
+
+    gpa:
+      (
+        theoryGradeCount +
+        practicalGradeCount
+      ) >
+      0
+        ? semesterResult.gpa
+        : null,
+
+    theoryGradeCount,
+
+    practicalGradeCount,
+
+    hasAnyData:
+      cat1Count >
+        0 ||
+      cat2Count >
+        0 ||
+      theoryGradeCount >
+        0 ||
+      practicalGradeCount >
+        0
+
+  };
+
+}
+
+
+function findPreviousMetric(
+  semesterNumber,
+  metric
+) {
+
+  const previousSemesters =
+    Object.keys(
+      CURRICULUM
+    )
+
+      .map(
+        Number
+      )
+
+      .filter(
+        number =>
+          number <
+          semesterNumber
+      )
+
+      .sort(
+        (
+          a,
+          b
+        ) =>
+          b - a
       );
 
 
-      renderAcademic();
+  for (
+    const previous
+    of
+    previousSemesters
+  ) {
+
+    const data =
+      getSemesterMetrics(
+        previous
+      );
+
+
+    if (
+      data[metric] !==
+      null
+    ) {
+
+      return {
+
+        semester:
+          previous,
+
+        value:
+          data[metric]
+
+      };
+
+    }
+
+  }
+
+
+  return null;
+
+}
+
+
+function findPreviousYearCGPA(
+  year
+) {
+
+  for (
+    let previousYear =
+      year -
+      1;
+
+    previousYear >=
+    1;
+
+    previousYear--
+  ) {
+
+    const value =
+      calculateYearCGPA(
+        previousYear
+      );
+
+
+    if (
+      value >
+      0
+    ) {
+
+      return {
+
+        year:
+          previousYear,
+
+        value
+
+      };
+
+    }
+
+  }
+
+
+  return null;
+
+}
+
+
+function formatGrowthValue(
+  value,
+  suffix = ""
+) {
+
+  if (
+    value ===
+    null ||
+    value ===
+    undefined
+  ) {
+
+    return "—";
+
+  }
+
+
+  return `${value.toFixed(
+    2
+  )}${suffix}`;
+
+}
+
+
+function getGrowthDeltaClass(
+  delta
+) {
+
+  if (
+    delta ===
+    null
+  ) {
+
+    return "growth-neutral";
+
+  }
+
+
+  if (
+    delta >
+    0.004
+  ) {
+
+    return "growth-up";
+
+  }
+
+
+  if (
+    delta <
+    -0.004
+  ) {
+
+    return "growth-down";
+
+  }
+
+
+  return "growth-neutral";
+
+}
+
+
+function getGrowthArrow(
+  delta
+) {
+
+  if (
+    delta ===
+    null
+  ) {
+
+    return "•";
+
+  }
+
+
+  if (
+    delta >
+    0.004
+  ) {
+
+    return "↑";
+
+  }
+
+
+  if (
+    delta <
+    -0.004
+  ) {
+
+    return "↓";
+
+  }
+
+
+  return "→";
+
+}
+
+
+function growthComment(
+  label,
+  delta
+) {
+
+  if (
+    delta ===
+    null
+  ) {
+
+    return `
+
+      🌱 ${label} has a baseline now.
+      Give me another semester and
+      I’ll start catching you in the act. 👀
+
+    `;
+
+  }
+
+
+  const rounded =
+    Math.abs(
+      delta
+    ).toFixed(
+      2
+    );
+
+
+  if (
+    delta >
+    0.004
+  ) {
+
+    const positive = [
+
+      `🦋 ${label} is UP by ${rounded}. Ohhh, somebody has been quietly cooking.`,
+
+      `👀 ${label} increased by ${rounded}. I saw that little academic upgrade.`,
+
+      `✨ ${label} climbed by ${rounded}. Sneaky improvement detected.`,
+
+      `💅 ${label} said “watch me” and went up by ${rounded}.`
+
+    ];
+
+
+    return positive[
+      Math.floor(
+        Math.abs(
+          delta *
+          1000
+        ) %
+        positive.length
+      )
+    ];
+
+  }
+
+
+  if (
+    delta <
+    -0.004
+  ) {
+
+    const negative = [
+
+      `👀 ${label} is DOWN by ${rounded}. Caught you. Comeback department is now open.`,
+
+      `🌷 ${label} slipped by ${rounded}. Nothing dramatic — we simply have lore to rewrite.`,
+
+      `🫣 ${label} dropped by ${rounded}. Academic Growth has noticed.`,
+
+      `💗 ${label} moved down by ${rounded}. Good thing this is a tracker, not a courtroom.`
+
+    ];
+
+
+    return negative[
+      Math.floor(
+        Math.abs(
+          delta *
+          1000
+        ) %
+        negative.length
+      )
+    ];
+
+  }
+
+
+  return `
+
+    🌸 ${label} is basically steady.
+    Holding the line. Very suspiciously calm.
+
+  `;
+
+}
+
+
+function createGrowthStyles() {
+
+  if (
+    $("academicGrowthStyles")
+  ) {
+
+    return;
+
+  }
+
+
+  const style =
+    document.createElement(
+      "style"
+    );
+
+
+  style.id =
+    "academicGrowthStyles";
+
+
+  style.textContent = `
+
+    .pookie-growth-page {
+
+      padding-bottom:
+        120px;
+
+    }
+
+
+    .growth-year-tabs {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          4,
+          1fr
+        );
+
+      gap:
+        8px;
+
+      margin:
+        15px 0;
+
+    }
+
+
+    .growth-year-tabs button {
+
+      border:
+        0;
+
+      border-radius:
+        16px;
+
+      padding:
+        11px 6px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.75
+        );
+
+      font:
+        inherit;
+
+      cursor:
+        pointer;
+
+    }
+
+
+    .growth-year-tabs button.active {
+
+      background:
+        #ff70a8;
+
+      color:
+        white;
+
+    }
+
+
+    .growth-hero {
+
+      border-radius:
+        24px;
+
+      padding:
+        18px;
+
+      margin-bottom:
+        14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff0f7,
+          #fff8fb
+        );
+
+      border:
+        1px solid
+        rgba(
+          255,
+          112,
+          168,
+          0.22
+        );
+
+    }
+
+
+    .growth-hero h2 {
+
+      margin:
+        0 0 6px;
+
+    }
+
+
+    .growth-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(
+            0,
+            1fr
+          )
+        );
+
+      gap:
+        10px;
+
+      margin-top:
+        14px;
+
+    }
+
+
+    .growth-stat {
+
+      border-radius:
+        18px;
+
+      padding:
+        14px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.85
+        );
+
+      border:
+        1px solid
+        rgba(
+          255,
+          112,
+          168,
+          0.16
+        );
+
+    }
+
+
+    .growth-label {
+
+      font-size:
+        12px;
+
+      opacity:
+        0.72;
+
+      margin-bottom:
+        5px;
+
+    }
+
+
+    .growth-value {
+
+      font-size:
+        24px;
+
+      font-weight:
+        800;
+
+    }
+
+
+    .growth-change {
+
+      margin-top:
+        7px;
+
+      font-size:
+        12px;
+
+      line-height:
+        1.45;
+
+    }
+
+
+    .growth-up {
+
+      color:
+        #168b56;
+
+    }
+
+
+    .growth-down {
+
+      color:
+        #c94b69;
+
+    }
+
+
+    .growth-neutral {
+
+      color:
+        #777;
+
+    }
+
+
+    .growth-semester {
+
+      border-radius:
+        20px;
+
+      padding:
+        15px;
+
+      margin-top:
+        12px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.82
+        );
+
+      border:
+        1px solid
+        rgba(
+          255,
+          112,
+          168,
+          0.14
+        );
+
+    }
+
+
+    .growth-semester-title {
+
+      font-weight:
+        800;
+
+      margin-bottom:
+        10px;
+
+    }
+
+
+    .growth-metric-row {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr auto;
+
+      gap:
+        10px;
+
+      padding:
+        8px 0;
+
+      border-bottom:
+        1px dashed
+        rgba(
+          0,
+          0,
+          0,
+          0.08
+        );
+
+    }
+
+
+    .growth-metric-row:last-child {
+
+      border-bottom:
+        0;
+
+    }
+
+
+    .growth-message {
+
+      margin-top:
+        12px;
+
+      padding:
+        13px;
+
+      border-radius:
+        16px;
+
+      background:
+        #fff7fb;
+
+      line-height:
+        1.5;
+
+      font-size:
+        13px;
+
+    }
+
+
+    .growth-waiting {
+
+      text-align:
+        center;
+
+      padding:
+        24px 16px;
+
+      border-radius:
+        22px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff8fb,
+          #fff2f8
+        );
+
+    }
+
+
+    .growth-icon-button {
+
+      border:
+        0;
+
+      cursor:
+        pointer;
+
+      width:
+        100%;
+
+      min-height:
+        120px;
+
+      border-radius:
+        24px;
+
+      padding:
+        16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #effff5,
+          #fff7fb
+        );
+
+      font:
+        inherit;
+
+    }
+
+
+    .growth-icon-big {
+
+      font-size:
+        38px;
+
+      display:
+        block;
+
+      margin-bottom:
+        5px;
+
+    }
+
+
+    .growth-note {
+
+      font-size:
+        12px;
+
+      opacity:
+        0.72;
+
+      line-height:
+        1.45;
+
+    }
+
+  `;
+
+
+  document.head.appendChild(
+    style
+  );
+
+}
+
+
+function createAcademicGrowthPage() {
+
+  if (
+    $("academicGrowth")
+  ) {
+
+    return;
+
+  }
+
+
+  createGrowthStyles();
+
+
+  const page =
+    document.createElement(
+      "section"
+    );
+
+
+  page.id =
+    "academicGrowth";
+
+
+  page.className =
+    "page pookie-growth-page";
+
+
+  page.innerHTML = `
+
+    <div
+      class="academic-section"
+    >
+
+      <div
+        class="academic-title-row"
+      >
+
+        <div>
+
+          <h1
+            style="
+              margin:0
+            "
+          >
+
+            🌱 Academic Growth
+
+          </h1>
+
+
+          <div
+            class="muted"
+          >
+
+            Academic Race gives me
+            the data.
+
+            I give you the tea. 👀
+
+          </div>
+
+        </div>
+
+
+        <div
+          style="
+            font-size:38px
+          "
+        >
+
+          🦋
+
+        </div>
+
+      </div>
+
+
+      <button
+
+        type="button"
+
+        class="primary-btn"
+
+        style="
+          width:auto;
+          margin-top:12px
+        "
+
+        data-page="home"
+
+      >
+
+        ← Back to Garden
+
+      </button>
+
+
+      <div
+        id="academicGrowthContent"
+      ></div>
+
+    </div>
+
+  `;
+
+
+  document.body.appendChild(
+    page
+  );
+
+}
+
+
+function renderGrowthMetricCard(
+  label,
+  value,
+  previous,
+  suffix = ""
+) {
+
+  const delta =
+    value !==
+      null &&
+    previous !==
+      null
+
+      ? value -
+        previous
+
+      : null;
+
+
+  const className =
+    getGrowthDeltaClass(
+      delta
+    );
+
+
+  const arrow =
+    getGrowthArrow(
+      delta
+    );
+
+
+  let comparison =
+    "No previous value yet.";
+
+
+  if (
+    delta !==
+    null
+  ) {
+
+    comparison =
+      `${arrow} ${
+        delta >
+        0.004
+
+          ? "Increased"
+
+          : delta <
+            -0.004
+
+            ? "Decreased"
+
+            : "Stayed almost the same"
+      } by ${
+        Math.abs(
+          delta
+        ).toFixed(
+          2
+        )
+      }`;
+
+  }
+
+
+  return `
+
+    <div
+      class="growth-stat"
+    >
+
+      <div
+        class="growth-label"
+      >
+
+        ${escapeHtml(
+          label
+        )}
+
+      </div>
+
+
+      <div
+        class="growth-value"
+      >
+
+        ${
+          value ===
+          null
+
+            ? "—"
+
+            : escapeHtml(
+                formatGrowthValue(
+                  value,
+                  suffix
+                )
+              )
+        }
+
+      </div>
+
+
+      <div
+        class="
+          growth-change
+          ${className}
+        "
+      >
+
+        ${escapeHtml(
+          comparison
+        )}
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function renderAcademicGrowth() {
+
+  createAcademicGrowthPage();
+
+
+  const container =
+    $("academicGrowthContent");
+
+
+  if (
+    !container
+  )
+    return;
+
+
+  const year =
+    state.growthYear;
+
+
+  const semesters =
+    getYearSemesters(
+      year
+    );
+
+
+  const semesterData =
+    semesters.map(
+      semester => ({
+
+        semester,
+
+        data:
+          getSemesterMetrics(
+            semester
+          )
+
+      })
+    );
+
+
+  const hasAnyData =
+    semesterData.some(
+      item =>
+        item.data
+          .hasAnyData
+    );
+
+
+  const yearCgpaRaw =
+    calculateYearCGPA(
+      year
+    );
+
+
+  const yearCgpa =
+    yearCgpaRaw >
+    0
+      ? yearCgpaRaw
+      : null;
+
+
+  const latest =
+    [
+      ...semesterData
+    ]
+      .reverse()
+      .find(
+        item =>
+          item.data
+            .hasAnyData
+      );
+
+
+  const latestSemester =
+    latest
+      ? latest.semester
+      : null;
+
+
+  const latestData =
+    latest
+      ? latest.data
+      : null;
+
+
+  const previousCat1 =
+    latestSemester !==
+    null
+
+      ? findPreviousMetric(
+          latestSemester,
+          "cat1"
+        )
+
+      : null;
+
+
+  const previousCat2 =
+    latestSemester !==
+    null
+
+      ? findPreviousMetric(
+          latestSemester,
+          "cat2"
+        )
+
+      : null;
+
+
+  const previousGpa =
+    latestSemester !==
+    null
+
+      ? findPreviousMetric(
+          latestSemester,
+          "gpa"
+        )
+
+      : null;
+
+
+  const previousYear =
+    findPreviousYearCGPA(
+      year
+    );
+
+
+  let story =
+    "";
+
+
+  if (
+    !hasAnyData
+  ) {
+
+    story = `
+
+      <div
+        class="growth-waiting"
+      >
+
+        <div
+          style="
+            font-size:42px;
+            margin-bottom:8px
+          "
+        >
+
+          🦋
+
+        </div>
+
+
+        <strong>
+
+          ${getAcademicYearLabel(
+            year
+          )}
+
+          is still waiting for
+          your update.
+
+        </strong>
+
+
+        <div
+          class="growth-note"
+          style="
+            margin-top:8px
+          "
+        >
+
+          👀 I checked twice.
+
+          Your marks are apparently
+          hiding backstage.
+
+          <br><br>
+
+          “I can analyse your data.
+
+          I cannot manufacture it.”
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+  else if (
+    latestData &&
+    latestData.gpa ===
+      null &&
+    (
+      latestData.cat1 !==
+        null ||
+      latestData.cat2 !==
+        null
+    )
+  ) {
+
+    story = `
+
+      <div
+        class="growth-message"
+      >
+
+        🌸
+
+        <strong>
+          CAT marks have entered
+          the chat.
+        </strong>
+
+        <br>
+
+        ${getAcademicYearLabel(
+          year
+        )}
+
+        currently has
+
+        ${
+          latestData.cat1 !==
+          null
+
+            ? "CAT 1 data"
+
+            : ""
+        }
+
+        ${
+          latestData.cat1 !==
+            null &&
+          latestData.cat2 !==
+            null
+
+            ? " and "
+
+            : ""
+        }
+
+        ${
+          latestData.cat2 !==
+          null
+
+            ? "CAT 2 data"
+
+            : ""
+        }.
+
+        <br><br>
+
+        👀 GPA is still backstage
+        waiting for semester grades.
+
+        The calculator refuses to
+        invent one.
+
+      </div>
+
+    `;
+
+  }
+
+  else {
+
+    story = `
+
+      <div
+        class="growth-message"
+      >
+
+        🦋
+
+        <strong>
+          I found academic activity.
+        </strong>
+
+        ${getAcademicYearLabel(
+          year
+        )}
+
+        is no longer allowed to
+        sneak past me unnoticed.
+
+        <br><br>
+
+        ${
+          latestSemester
+
+            ? `
+
+              Latest update spotted in
+              <strong>
+                ${
+                  CURRICULUM[
+                    latestSemester
+                  ].name
+                }
+              </strong>.
+
+            `
+
+            : ""
+        }
+
+        ${
+          latestData &&
+          latestData.gpa !==
+            null
+
+            ? `
+
+              <br>
+
+              🎀 GPA is alive and
+              reporting for duty.
+
+            `
+
+            : ""
+        }
+
+      </div>
+
+    `;
+
+  }
+
+
+  let cgpaComparison =
+    "";
+
+
+  if (
+    yearCgpa !==
+      null &&
+    previousYear
+  ) {
+
+    const delta =
+      yearCgpa -
+      previousYear.value;
+
+
+    const className =
+      getGrowthDeltaClass(
+        delta
+      );
+
+
+    cgpaComparison = `
+
+      <div
+        class="
+          growth-message
+          ${className}
+        "
+      >
+
+        ${
+          delta >
+          0.004
+
+            ? `
+
+              ↑ CGPA increased by
+              <strong>
+                ${
+                  Math.abs(
+                    delta
+                  ).toFixed(
+                    2
+                  )
+                }
+              </strong>
+
+              from
+              ${getAcademicYearLabel(
+                previousYear.year
+              )}.
+
+              Sneaky little academic
+              upgrade. 👀
+
+            `
+
+            : delta <
+              -0.004
+
+              ? `
+
+                ↓ CGPA decreased by
+                <strong>
+                  ${
+                    Math.abs(
+                      delta
+                    ).toFixed(
+                      2
+                    )
+                  }
+                </strong>
+
+                from
+                ${getAcademicYearLabel(
+                  previousYear.year
+                )}.
+
+                The comeback department
+                remains open. 🌷
+
+              `
+
+              : `
+
+                → CGPA is almost unchanged
+                from
+                ${getAcademicYearLabel(
+                  previousYear.year
+                )}.
+
+                Holding the line.
+
+              `
+        }
+
+      </div>
+
+    `;
+
+  }
+
+  else if (
+    yearCgpa !==
+    null
+  ) {
+
+    cgpaComparison = `
+
+      <div
+        class="growth-message"
+      >
+
+        🌱 First year with CGPA data.
+
+        Baseline established.
+
+        Give me another year and
+        I’ll start comparing properly. 👀
+
+      </div>
+
+    `;
+
+  }
+
+
+  const growthGrid = `
+
+    <div
+      class="growth-grid"
+    >
+
+      ${renderGrowthMetricCard(
+        "Year CGPA",
+        yearCgpa,
+        previousYear
+          ? previousYear.value
+          : null
+      )}
+
+
+      ${renderGrowthMetricCard(
+        "Latest CAT 1",
+        latestData
+          ? latestData.cat1
+          : null,
+        previousCat1
+          ? previousCat1.value
+          : null,
+        "%"
+      )}
+
+
+      ${renderGrowthMetricCard(
+        "Latest CAT 2",
+        latestData
+          ? latestData.cat2
+          : null,
+        previousCat2
+          ? previousCat2.value
+          : null,
+        "%"
+      )}
+
+
+      ${renderGrowthMetricCard(
+        "Latest Semester GPA",
+        latestData
+          ? latestData.gpa
+          : null,
+        previousGpa
+          ? previousGpa.value
+          : null
+      )}
+
+    </div>
+
+  `;
+
+
+  let comparisonMessages =
+    "";
+
+
+  if (
+    latestData &&
+    latestData.cat1 !==
+      null
+  ) {
+
+    comparisonMessages += `
+
+      <div
+        class="growth-message"
+      >
+
+        ${growthComment(
+          "CAT 1",
+          previousCat1
+            ? latestData.cat1 -
+              previousCat1.value
+            : null
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+
+  if (
+    latestData &&
+    latestData.cat2 !==
+      null
+  ) {
+
+    comparisonMessages += `
+
+      <div
+        class="growth-message"
+      >
+
+        ${growthComment(
+          "CAT 2",
+          previousCat2
+            ? latestData.cat2 -
+              previousCat2.value
+            : null
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+
+  if (
+    latestData &&
+    latestData.gpa !==
+      null
+  ) {
+
+    comparisonMessages += `
+
+      <div
+        class="growth-message"
+      >
+
+        ${growthComment(
+          "Semester GPA",
+          previousGpa
+            ? latestData.gpa -
+              previousGpa.value
+            : null
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+
+  const semesterCards =
+    semesterData
+      .map(
+        item => {
+
+          const data =
+            item.data;
+
+
+          const previousForCat1 =
+            findPreviousMetric(
+              item.semester,
+              "cat1"
+            );
+
+
+          const previousForCat2 =
+            findPreviousMetric(
+              item.semester,
+              "cat2"
+            );
+
+
+          const previousForGpa =
+            findPreviousMetric(
+              item.semester,
+              "gpa"
+            );
+
+
+          return `
+
+            <div
+              class="growth-semester"
+            >
+
+              <div
+                class="
+                  growth-semester-title
+                "
+              >
+
+                ${
+                  escapeHtml(
+                    CURRICULUM[
+                      item.semester
+                    ].name
+                  )
+                }
+
+              </div>
+
+
+              <div
+                class="
+                  growth-metric-row
+                "
+              >
+
+                <span>
+                  CAT 1
+                </span>
+
+
+                <strong>
+
+                  ${
+                    data.cat1 ===
+                    null
+
+                      ? "Not entered"
+
+                      : formatGrowthValue(
+                          data.cat1,
+                          "%"
+                        )
+                  }
+
+                </strong>
+
+              </div>
+
+
+              <div
+                class="
+                  growth-metric-row
+                "
+              >
+
+                <span>
+                  CAT 2
+                </span>
+
+
+                <strong>
+
+                  ${
+                    data.cat2 ===
+                    null
+
+                      ? "Not entered"
+
+                      : formatGrowthValue(
+                          data.cat2,
+                          "%"
+                        )
+                  }
+
+                </strong>
+
+              </div>
+
+
+              <div
+                class="
+                  growth-metric-row
+                "
+              >
+
+                <span>
+                  Semester GPA
+                </span>
+
+
+                <strong>
+
+                  ${
+                    data.gpa ===
+                    null
+
+                      ? "Waiting for grades"
+
+                      : data.gpa.toFixed(
+                          2
+                        )
+                  }
+
+                </strong>
+
+              </div>
+
+
+              <div
+                class="
+                  growth-metric-row
+                "
+              >
+
+                <span>
+                  Practical grades
+                </span>
+
+
+                <strong>
+
+                  ${
+                    data
+                      .practicalGradeCount
+                  }
+                  entered
+
+                </strong>
+
+              </div>
+
+
+              ${
+                data.cat1 !==
+                null
+
+                  ? `
+
+                    <div
+                      class="
+                        growth-change
+                        ${getGrowthDeltaClass(
+                          previousForCat1
+                            ? data.cat1 -
+                              previousForCat1.value
+                            : null
+                        )}
+                      "
+                    >
+
+                      ${growthComment(
+                        "CAT 1",
+                        previousForCat1
+                          ? data.cat1 -
+                            previousForCat1.value
+                          : null
+                      )}
+
+                    </div>
+
+                  `
+
+                  : ""
+              }
+
+
+              ${
+                data.cat2 !==
+                null
+
+                  ? `
+
+                    <div
+                      class="
+                        growth-change
+                        ${getGrowthDeltaClass(
+                          previousForCat2
+                            ? data.cat2 -
+                              previousForCat2.value
+                            : null
+                        )}
+                      "
+                      style="
+                        margin-top:7px
+                      "
+                    >
+
+                      ${growthComment(
+                        "CAT 2",
+                        previousForCat2
+                          ? data.cat2 -
+                            previousForCat2.value
+                          : null
+                      )}
+
+                    </div>
+
+                  `
+
+                  : ""
+              }
+
+
+              ${
+                data.gpa !==
+                null
+
+                  ? `
+
+                    <div
+                      class="
+                        growth-change
+                        ${getGrowthDeltaClass(
+                          previousForGpa
+                            ? data.gpa -
+                              previousForGpa.value
+                            : null
+                        )}
+                      "
+                      style="
+                        margin-top:7px
+                      "
+                    >
+
+                      ${growthComment(
+                        "GPA",
+                        previousForGpa
+                          ? data.gpa -
+                            previousForGpa.value
+                          : null
+                      )}
+
+                    </div>
+
+                  `
+
+                  : ""
+              }
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join("");
+
+
+  container.innerHTML = `
+
+    <div
+      class="growth-hero"
+      style="
+        margin-top:14px
+      "
+    >
+
+      <h2>
+
+        ${getAcademicYearLabel(
+          year
+        )}
+
+      </h2>
+
+
+      <div
+        class="growth-note"
+      >
+
+        I’m not judging.
+
+        I’m just keeping receipts. 👀🌷
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="growth-year-tabs"
+    >
+
+      ${[1, 2, 3, 4]
+        .map(
+          item => `
+
+            <button
+              type="button"
+              data-growth-year="${item}"
+              class="${
+                state.growthYear ===
+                item
+                  ? "active"
+                  : ""
+              }"
+            >
+
+              ${
+                item ===
+                1
+                  ? "1st"
+                  : item ===
+                    2
+                    ? "2nd"
+                    : item ===
+                      3
+                      ? "3rd"
+                      : "4th"
+              }
+
+            </button>
+
+          `
+        )
+        .join("")}
+
+    </div>
+
+
+    ${story}
+
+
+    ${
+      hasAnyData
+        ? growthGrid
+        : ""
+    }
+
+
+    ${cgpaComparison}
+
+
+    ${
+      comparisonMessages
+
+        ? `
+
+          <div
+            class="academic-section"
+            style="
+              margin-top:12px
+            "
+          >
+
+            <h3
+              style="
+                margin:0
+              "
+            >
+
+              🔎 The Evidence
+
+            </h3>
+
+
+            ${comparisonMessages}
+
+          </div>
+
+        `
+
+        : ""
+    }
+
+
+    <div
+      class="academic-section"
+      style="
+        margin-top:12px
+      "
+    >
+
+      <h3
+        style="
+          margin:0
+        "
+      >
+
+        📚 Semester-by-Semester
+
+      </h3>
+
+
+      <div
+        class="muted"
+      >
+
+        CAT values are averages of
+        entered theory marks.
+
+        GPA uses the grades already
+        entered in Academic Race,
+        including practical grades.
+
+      </div>
+
+
+      ${semesterCards}
+
+    </div>
+
+  `;
+
+
+  document
+    .querySelectorAll(
+      "[data-growth-year]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            state.growthYear =
+              Number(
+                button.dataset
+                  .growthYear
+              );
+
+
+            renderAcademicGrowth();
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* ============================================================
+   ACADEMIC GROWTH ICON
+   ============================================================ */
+
+function createAcademicGrowthIcon() {
+
+  if (
+    $("openAcademicGrowth")
+  ) {
+
+    return;
+
+  }
+
+
+  const raceButton =
+    $("openAcademicRace");
+
+
+  if (
+    !raceButton
+  ) {
+
+    return;
+
+  }
+
+
+  createGrowthStyles();
+
+
+  const button =
+    document.createElement(
+      "button"
+    );
+
+
+  button.id =
+    "openAcademicGrowth";
+
+
+  button.className =
+    "growth-icon-button";
+
+
+  button.innerHTML = `
+
+    <span
+      class="growth-icon-big"
+    >
+
+      🌱
+
+    </span>
+
+
+    <strong>
+
+      Academic Growth
+
+    </strong>
+
+
+    <span
+      class="growth-note"
+    >
+
+      Your marks have been talking.
+
+      I’ve been listening. 👀
+
+    </span>
+
+  `;
+
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      state.growthYear =
+        state.currentYear;
+
+
+      showPage(
+        "academicGrowth"
+      );
 
     }
   );
+
+
+  raceButton
+    .insertAdjacentElement(
+      "afterend",
+      button
+    );
+
+}
+
+
+/* ============================================================
+   INITIALISE EVENTS ELIXIR
+   ============================================================ */
+
+setupEventsElixir();
+
+
+/* ============================================================
+   CREATE ACADEMIC GROWTH
+   ============================================================ */
+
+createAcademicGrowthIcon();
 
 
 /* ============================================================
@@ -4721,7 +8618,7 @@ if (
 
       navigator.serviceWorker
         .register(
-          "./service-worker.js?v=3",
+          "./service-worker.js?v=4",
           {
             updateViaCache:
               "none"
@@ -4758,3 +8655,7 @@ renderSaveDates();
 renderCalendars();
 
 renderAcademic();
+
+setupEventsElixir();
+
+createAcademicGrowthIcon();
