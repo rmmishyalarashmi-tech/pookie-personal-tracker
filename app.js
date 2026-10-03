@@ -22,10 +22,8 @@ const state = {
   academicMode:
     "theory",
 
-  academicUnlocked:
-    sessionStorage.getItem(
-      "pookieAcademicUnlocked"
-    ) === "yes"
+  academicEditMode:
+    false
 
 };
 
@@ -147,1294 +145,610 @@ const PROVERBS = [
 const CURRICULUM = {
 
   1: {
-
     year: 1,
-
     name: "Semester I",
 
     courses: [
 
       {
-        code:
-          "EN3111",
-
-        title:
-          "Professional English – I",
-
-        category:
-          "HSMC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EN3111",
+        title: "Professional English – I",
+        category: "HSMC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "MA3122",
-
-        title:
-          "Matrices and Calculus",
-
-        category:
-          "BSC",
-
-        credits:
-          4,
-
-        section:
-          "theory"
-
+        code: "MA3122",
+        title: "Matrices and Calculus",
+        category: "BSC",
+        credits: 4,
+        section: "theory"
       },
 
       {
-        code:
-          "PH3123",
-
-        title:
-          "Engineering Physics",
-
-        category:
-          "BSC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "PH3123",
+        title: "Engineering Physics",
+        category: "BSC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "CH3124",
-
-        title:
-          "Engineering Chemistry",
-
-        category:
-          "BSC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "CH3124",
+        title: "Engineering Chemistry",
+        category: "BSC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "GE3132",
-
-        title:
-          "Basic Electrical and Instrumentation Engineering",
-
-        category:
-          "ESC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "GE3132",
+        title: "Basic Electrical and Instrumentation Engineering",
+        category: "ESC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "GE3111",
-
-        title:
-          "Heritage of Tamils / தமிழர்மரபு",
-
-        category:
-          "HSMC",
-
-        credits:
-          1,
-
-        section:
-          "theory"
-
+        code: "GE3111",
+        title: "Heritage of Tamils / தமிழர்மரபு",
+        category: "HSMC",
+        credits: 1,
+        section: "theory"
       },
 
       {
-        code:
-          "EN3119",
-
-        title:
-          "English Language Learning Laboratory",
-
-        category:
-          "HSMC",
-
-        credits:
-          1,
-
-        section:
-          "practical"
-
+        code: "EN3119",
+        title: "English Language Learning Laboratory",
+        category: "HSMC",
+        credits: 1,
+        section: "practical"
       },
 
       {
-        code:
-          "GE3121",
-
-        title:
-          "Physics and Chemistry Laboratory",
-
-        category:
-          "BSC",
-
-        credits:
-          2,
-
-        section:
-          "practical"
-
+        code: "GE3121",
+        title: "Physics and Chemistry Laboratory",
+        category: "BSC",
+        credits: 2,
+        section: "practical"
       },
 
       {
-        code:
-          "GE3134",
-
-        title:
-          "Engineering Practices Laboratory",
-
-        category:
-          "ESC",
-
-        credits:
-          2,
-
-        section:
-          "practical"
-
+        code: "GE3134",
+        title: "Engineering Practices Laboratory",
+        category: "ESC",
+        credits: 2,
+        section: "practical"
       }
 
     ]
-
   },
 
 
   2: {
-
     year: 1,
-
     name: "Semester II",
 
     courses: [
 
       {
-        code:
-          "EN3211",
-
-        title:
-          "Professional English – II",
-
-        category:
-          "HSMC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EN3211",
+        title: "Professional English – II",
+        category: "HSMC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "MA3222",
-
-        title:
-          "Statistics and Numerical Methods",
-
-        category:
-          "BSC",
-
-        credits:
-          4,
-
-        section:
-          "theory"
-
+        code: "MA3222",
+        title: "Statistics and Numerical Methods",
+        category: "BSC",
+        credits: 4,
+        section: "theory"
       },
 
       {
-        code:
-          "PH3223",
-
-        title:
-          "Physics for Electronics Engineering",
-
-        category:
-          "BSC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "PH3223",
+        title: "Physics for Electronics Engineering",
+        category: "BSC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "CH3223",
-
-        title:
-          "Chemistry of Electronic Materials",
-
-        category:
-          "BSC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "CH3223",
+        title: "Chemistry of Electronic Materials",
+        category: "BSC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "GE3231",
-
-        title:
-          "Problem Solving and Python Programming",
-
-        category:
-          "ESC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "GE3231",
+        title: "Problem Solving and Python Programming",
+        category: "ESC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "GE3211",
-
-        title:
-          "Tamils and Technology / தமிழரும் தொழில்நுட்பமும்",
-
-        category:
-          "HSMC",
-
-        credits:
-          1,
-
-        section:
-          "theory"
-
+        code: "GE3211",
+        title: "Tamils and Technology / தமிழரும் தொழில்நுட்பமும்",
+        category: "HSMC",
+        credits: 1,
+        section: "theory"
       },
 
       {
-        code:
-          "GE3233",
-
-        title:
-          "Engineering Graphics and Design",
-
-        category:
-          "ESC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "GE3233",
+        title: "Engineering Graphics and Design",
+        category: "ESC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "GE3221",
-
-        title:
-          "Engineering Sciences Laboratory",
-
-        category:
-          "BSC",
-
-        credits:
-          2,
-
-        section:
-          "practical"
-
+        code: "GE3221",
+        title: "Engineering Sciences Laboratory",
+        category: "BSC",
+        credits: 2,
+        section: "practical"
       },
 
       {
-        code:
-          "GE3232",
-
-        title:
-          "Problem Solving and Python Programming Laboratory",
-
-        category:
-          "ESC",
-
-        credits:
-          2,
-
-        section:
-          "practical"
-
+        code: "GE3232",
+        title: "Problem Solving and Python Programming Laboratory",
+        category: "ESC",
+        credits: 2,
+        section: "practical"
       },
 
       {
-        code:
-          "GE3251",
-
-        title:
-          "NSS / YRC / NSO / Club Activities",
-
-        category:
-          "PCD",
-
-        credits:
-          0,
-
-        section:
-          "theory"
-
+        code: "GE3251",
+        title: "NSS / YRC / NSO / Club Activities",
+        category: "PCD",
+        credits: 0,
+        section: "theory"
       }
 
     ]
-
   },
 
 
   3: {
-
     year: 2,
-
     name: "Semester III",
 
     courses: [
 
       {
-        code:
-          "MA3321",
-
-        title:
-          "Transforms and Partial Differential Equations",
-
-        category:
-          "BSC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "MA3321",
+        title: "Transforms and Partial Differential Equations",
+        category: "BSC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3362",
-
-        title:
-          "Solid State Devices and Circuits",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3362",
+        title: "Solid State Devices and Circuits",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3363",
-
-        title:
-          "Signals and Systems",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3363",
+        title: "Signals and Systems",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EE3363",
-
-        title:
-          "Electric Circuit Analysis",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EE3363",
+        title: "Electric Circuit Analysis",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3365",
-
-        title:
-          "Electromagnetic Fields",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3365",
+        title: "Electromagnetic Fields",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3366",
-
-        title:
-          "Digital Systems Design",
-
-        category:
-          "PCC",
-
-        credits:
-          4,
-
-        section:
-          "theory"
-
+        code: "EC3366",
+        title: "Digital Systems Design",
+        category: "PCC",
+        credits: 4,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3367",
-
-        title:
-          "Electronics Circuits Design Laboratory",
-
-        category:
-          "PCC",
-
-        credits:
-          1.5,
-
-        section:
-          "practical"
-
+        code: "EC3367",
+        title: "Electronics Circuits Design Laboratory",
+        category: "PCC",
+        credits: 1.5,
+        section: "practical"
       },
 
       {
-        code:
-          "EE3369",
-
-        title:
-          "Circuits Theory and Electronic Devices Laboratory",
-
-        category:
-          "PCC",
-
-        credits:
-          1.5,
-
-        section:
-          "practical"
-
+        code: "EE3369",
+        title: "Circuits Theory and Electronic Devices Laboratory",
+        category: "PCC",
+        credits: 1.5,
+        section: "practical"
       }
 
     ]
-
   },
 
 
   4: {
-
     year: 2,
-
     name: "Semester IV",
 
     courses: [
 
       {
-        code:
-          "MA3424",
-
-        title:
-          "Applied Mathematics for Electronics and Communication Engineering",
-
-        category:
-          "BSC",
-
-        credits:
-          2,
-
-        section:
-          "theory"
-
+        code: "MA3424",
+        title: "Applied Mathematics for Electronics and Communication Engineering",
+        category: "BSC",
+        credits: 2,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3462",
-
-        title:
-          "Linear Integrated Circuits",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3462",
+        title: "Linear Integrated Circuits",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3463",
-
-        title:
-          "Analog Communication",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3463",
+        title: "Analog Communication",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3464",
-
-        title:
-          "Microprocessors, Microcontrollers and Interfacing",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3464",
+        title: "Microprocessors, Microcontrollers and Interfacing",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EI3464",
-
-        title:
-          "Control Systems",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EI3464",
+        title: "Control Systems",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "GE3451",
-
-        title:
-          "NCC Credit Course Level - I",
-
-        category:
-          "PCD",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "GE3451",
+        title: "NCC Credit Course Level - I",
+        category: "PCD",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3465",
-
-        title:
-          "Digital Signal Processing",
-
-        category:
-          "PCC",
-
-        credits:
-          4,
-
-        section:
-          "theory"
-
+        code: "EC3465",
+        title: "Digital Signal Processing",
+        category: "PCC",
+        credits: 4,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3466",
-
-        title:
-          "Linear IC and PCB Design Laboratory",
-
-        category:
-          "PCC",
-
-        credits:
-          1.5,
-
-        section:
-          "practical"
-
+        code: "EC3466",
+        title: "Linear IC and PCB Design Laboratory",
+        category: "PCC",
+        credits: 1.5,
+        section: "practical"
       },
 
       {
-        code:
-          "EC3467",
-
-        title:
-          "Microprocessors, Microcontrollers and Interfacing Laboratory",
-
-        category:
-          "PCC",
-
-        credits:
-          1.5,
-
-        section:
-          "practical"
-
+        code: "EC3467",
+        title: "Microprocessors, Microcontrollers and Interfacing Laboratory",
+        category: "PCC",
+        credits: 1.5,
+        section: "practical"
       }
 
     ]
-
   },
 
 
   5: {
-
     year: 3,
-
     name: "Semester V",
 
     courses: [
 
       {
-        code:
-          "EC3561",
-
-        title:
-          "Digital Communication",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3561",
+        title: "Digital Communication",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3562",
-
-        title:
-          "Transmission Lines and Waveguides",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3562",
+        title: "Transmission Lines and Waveguides",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3563",
-
-        title:
-          "VLSI and Chip Design",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3563",
+        title: "VLSI and Chip Design",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "PEC10X",
-
-        title:
-          "Professional Elective-I",
-
-        category:
-          "PEC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "PEC10X",
+        title: "Professional Elective-I",
+        category: "PEC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "PEC20X",
-
-        title:
-          "Professional Elective-II",
-
-        category:
-          "PEC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "PEC20X",
+        title: "Professional Elective-II",
+        category: "PEC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "CE3531",
-
-        title:
-          "Environmental Studies",
-
-        category:
-          "ESC",
-
-        credits:
-          2,
-
-        section:
-          "theory"
-
+        code: "CE3531",
+        title: "Environmental Studies",
+        category: "ESC",
+        credits: 2,
+        section: "theory"
       },
 
       {
-        code:
-          "GE3551",
-
-        title:
-          "NCC Credit Course Level-II",
-
-        category:
-          "PCD",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "GE3551",
+        title: "NCC Credit Course Level-II",
+        category: "PCD",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3564",
-
-        title:
-          "Embedded Systems and IoT Design",
-
-        category:
-          "PCC",
-
-        credits:
-          4,
-
-        section:
-          "theory"
-
+        code: "EC3564",
+        title: "Embedded Systems and IoT Design",
+        category: "PCC",
+        credits: 4,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3566",
-
-        title:
-          "VLSI Laboratory",
-
-        category:
-          "PCC",
-
-        credits:
-          1.5,
-
-        section:
-          "practical"
-
+        code: "EC3566",
+        title: "VLSI Laboratory",
+        category: "PCC",
+        credits: 1.5,
+        section: "practical"
       },
 
       {
-        code:
-          "EC3567",
-
-        title:
-          "Analog and Digital Communication Laboratory",
-
-        category:
-          "PCC",
-
-        credits:
-          1.5,
-
-        section:
-          "practical"
-
+        code: "EC3567",
+        title: "Analog and Digital Communication Laboratory",
+        category: "PCC",
+        credits: 1.5,
+        section: "practical"
       }
 
     ]
-
   },
 
 
   6: {
-
     year: 3,
-
     name: "Semester VI",
 
     courses: [
 
       {
-        code:
-          "EC3661",
-
-        title:
-          "Wireless Communication",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3661",
+        title: "Wireless Communication",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3662",
-
-        title:
-          "Computer Networks and Security",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3662",
+        title: "Computer Networks and Security",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3663",
-
-        title:
-          "Antennas and Wave Propagation",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3663",
+        title: "Antennas and Wave Propagation",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "PEC30X",
-
-        title:
-          "Professional Elective-III",
-
-        category:
-          "PEC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "PEC30X",
+        title: "Professional Elective-III",
+        category: "PEC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "PXXX0X",
-
-        title:
-          "Professional Elective-IV",
-
-        category:
-          "PEC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "PXXX0X",
+        title: "Professional Elective-IV",
+        category: "PEC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "MAN10X",
-
-        title:
-          "Management Elective",
-
-        category:
-          "HSMC",
-
-        credits:
-          2,
-
-        section:
-          "theory"
-
+        code: "MAN10X",
+        title: "Management Elective",
+        category: "HSMC",
+        credits: 2,
+        section: "theory"
       },
 
       {
-        code:
-          "MXX10X",
-
-        title:
-          "Mandatory Course-I",
-
-        category:
-          "MC",
-
-        credits:
-          0,
-
-        section:
-          "theory"
-
+        code: "MXX10X",
+        title: "Mandatory Course-I",
+        category: "MC",
+        credits: 0,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3664",
-
-        title:
-          "Wireless Communication and Networking Laboratory",
-
-        category:
-          "PCC",
-
-        credits:
-          1.5,
-
-        section:
-          "practical"
-
+        code: "EC3664",
+        title: "Wireless Communication and Networking Laboratory",
+        category: "PCC",
+        credits: 1.5,
+        section: "practical"
       },
 
       {
-        code:
-          "EC3645",
-
-        title:
-          "Mini Project",
-
-        category:
-          "EEC",
-
-        credits:
-          2,
-
-        section:
-          "practical"
-
+        code: "EC3645",
+        title: "Mini Project",
+        category: "EEC",
+        credits: 2,
+        section: "practical"
       },
 
       {
-        code:
-          "EN3649",
-
-        title:
-          "Professional Communication Laboratory",
-
-        category:
-          "EEC",
-
-        credits:
-          1,
-
-        section:
-          "practical"
-
+        code: "EN3649",
+        title: "Professional Communication Laboratory",
+        category: "EEC",
+        credits: 1,
+        section: "practical"
       }
 
     ]
-
   },
 
 
   7: {
-
     year: 4,
-
     name: "Semester VII",
 
     courses: [
 
       {
-        code:
-          "EC3761",
-
-        title:
-          "Microwave and Optical Communication",
-
-        category:
-          "PCC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "EC3761",
+        title: "Microwave and Optical Communication",
+        category: "PCC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "PEC50X",
-
-        title:
-          "Professional Elective-V",
-
-        category:
-          "PEC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "PEC50X",
+        title: "Professional Elective-V",
+        category: "PEC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "PEC60X",
-
-        title:
-          "Professional Elective-VI",
-
-        category:
-          "PEC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "PEC60X",
+        title: "Professional Elective-VI",
+        category: "PEC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "BA3711",
-
-        title:
-          "Human Values and Ethics",
-
-        category:
-          "HSMC",
-
-        credits:
-          2,
-
-        section:
-          "theory"
-
+        code: "BA3711",
+        title: "Human Values and Ethics",
+        category: "HSMC",
+        credits: 2,
+        section: "theory"
       },
 
       {
-        code:
-          "OXXXXX",
-
-        title:
-          "Open Elective",
-
-        category:
-          "OEC",
-
-        credits:
-          3,
-
-        section:
-          "theory"
-
+        code: "OXXXXX",
+        title: "Open Elective",
+        category: "OEC",
+        credits: 3,
+        section: "theory"
       },
 
       {
-        code:
-          "MXX20X",
-
-        title:
-          "Mandatory Course-II",
-
-        category:
-          "MC",
-
-        credits:
-          0,
-
-        section:
-          "theory"
-
+        code: "MXX20X",
+        title: "Mandatory Course-II",
+        category: "MC",
+        credits: 0,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3763",
-
-        title:
-          "Artificial Intelligence and Machine Learning Techniques",
-
-        category:
-          "PCC",
-
-        credits:
-          4,
-
-        section:
-          "theory"
-
+        code: "EC3763",
+        title: "Artificial Intelligence and Machine Learning Techniques",
+        category: "PCC",
+        credits: 4,
+        section: "theory"
       },
 
       {
-        code:
-          "EC3764",
-
-        title:
-          "Microwave and Optical Communication Laboratory",
-
-        category:
-          "PCC",
-
-        credits:
-          1.5,
-
-        section:
-          "practical"
-
+        code: "EC3764",
+        title: "Microwave and Optical Communication Laboratory",
+        category: "PCC",
+        credits: 1.5,
+        section: "practical"
       },
 
       {
-        code:
-          "EC3745",
-
-        title:
-          "Internship",
-
-        category:
-          "EEC",
-
-        credits:
-          1,
-
-        section:
-          "practical"
-
+        code: "EC3745",
+        title: "Internship",
+        category: "EEC",
+        credits: 1,
+        section: "practical"
       }
 
     ]
-
   },
 
 
   8: {
-
     year: 4,
-
     name: "Semester VIII",
 
     courses: [
 
       {
-        code:
-          "EC3841",
-
-        title:
-          "Project Work",
-
-        category:
-          "EEC",
-
-        credits:
-          10,
-
-        section:
-          "practical"
-
+        code: "EC3841",
+        title: "Project Work",
+        category: "EEC",
+        credits: 10,
+        section: "practical"
       }
 
     ]
-
   }
 
 };
@@ -1451,7 +765,9 @@ function $(id) {
 }
 
 
-function escapeHtml(value) {
+function escapeHtml(
+  value
+) {
 
   return String(
     value ?? ""
@@ -1485,7 +801,9 @@ function escapeHtml(value) {
 }
 
 
-function toast(message) {
+function toast(
+  message
+) {
 
   const element =
     $("toast");
@@ -1562,15 +880,11 @@ function loadAcademic() {
 
   try {
 
-    const value =
-      JSON.parse(
-        localStorage.getItem(
-          STORAGE.academic
-        ) || "{}"
-      );
-
-
-    return value;
+    return JSON.parse(
+      localStorage.getItem(
+        STORAGE.academic
+      ) || "{}"
+    );
 
   } catch {
 
@@ -1596,13 +910,10 @@ let academic =
 function saveEvents() {
 
   localStorage.setItem(
-
     STORAGE.events,
-
     JSON.stringify(
       events
     )
-
   );
 
 }
@@ -1611,13 +922,10 @@ function saveEvents() {
 function saveDatesData() {
 
   localStorage.setItem(
-
     STORAGE.saveDates,
-
     JSON.stringify(
       saveDates
     )
-
   );
 
 }
@@ -1626,13 +934,10 @@ function saveDatesData() {
 function saveAcademicData() {
 
   localStorage.setItem(
-
     STORAGE.academic,
-
     JSON.stringify(
       academic
     )
-
   );
 
 }
@@ -1647,26 +952,21 @@ function localDateString(
 ) {
 
   return (
-
     date.getFullYear() +
     "-" +
-
     String(
       date.getMonth() + 1
     ).padStart(
       2,
       "0"
     ) +
-
     "-" +
-
     String(
       date.getDate()
     ).padStart(
       2,
       "0"
     )
-
   );
 
 }
@@ -1723,7 +1023,6 @@ function daysUntil(
     0
   );
 
-
   const date =
     parseDate(
       value
@@ -1735,7 +1034,6 @@ function daysUntil(
     0,
     0
   );
-
 
   return Math.round(
     (
@@ -1796,7 +1094,7 @@ function showPage(
 
   if (
     pageId ===
-      "academic"
+    "academic"
   ) {
 
     renderAcademic();
@@ -1818,10 +1116,8 @@ document.addEventListener(
         "[data-page]"
       );
 
-
     if (!button)
       return;
-
 
     showPage(
       button.dataset.page
@@ -2016,7 +1312,9 @@ function renderHomeDeadlines() {
 
                   <div>
 
-                    <div class="item-title">
+                    <div
+                      class="item-title"
+                    >
 
                       ${escapeHtml(
                         item.title
@@ -2025,7 +1323,9 @@ function renderHomeDeadlines() {
                     </div>
 
 
-                    <div class="item-meta">
+                    <div
+                      class="item-meta"
+                    >
 
                       📅
                       ${formatDate(
@@ -2260,7 +1560,9 @@ function renderSaveDates() {
 
                 <div>
 
-                  <div class="item-title">
+                  <div
+                    class="item-title"
+                  >
 
                     ${escapeHtml(
                       item.title
@@ -2367,7 +1669,9 @@ function renderSaveDates() {
                 item.remarks
 
                   ? `
-                    <div class="remarks">
+                    <div
+                      class="remarks"
+                    >
 
                       🌸
                       ${escapeHtml(
@@ -2382,14 +1686,10 @@ function renderSaveDates() {
 
 
               <button
-
                 class="danger-btn"
-
                 style="margin-top:10px"
-
                 onclick=
                   "deleteSaveDate('${item.id}')"
-
               >
 
                 Delete
@@ -2786,7 +2086,7 @@ window.deleteEvent =
 
 
 /* ============================================================
-   ACADEMIC LOCK
+   ACADEMIC PASSWORD
    ============================================================ */
 
 const ACADEMIC_PASSWORD_HASH =
@@ -2837,7 +2137,9 @@ function openLockModal() {
 
   $("lockModal")
     .classList
-    .add("show");
+    .add(
+      "show"
+    );
 
 
   $("lockModal")
@@ -2865,7 +2167,9 @@ function closeLockModal() {
 
   $("lockModal")
     .classList
-    .remove("show");
+    .remove(
+      "show"
+    );
 
 
   $("lockModal")
@@ -2883,10 +2187,10 @@ $("academicLockButton")
     () => {
 
       if (
-        state.academicUnlocked
+        state.academicEditMode
       ) {
 
-        lockAcademic();
+        finishAcademicEdit();
 
       } else {
 
@@ -2965,14 +2269,8 @@ $("unlockForm")
         }
 
 
-        state.academicUnlocked =
+        state.academicEditMode =
           true;
-
-
-        sessionStorage.setItem(
-          "pookieAcademicUnlocked",
-          "yes"
-        );
 
 
         closeLockModal();
@@ -2982,7 +2280,7 @@ $("unlockForm")
 
 
         toast(
-          "Academic Race unlocked 🦋"
+          "Academic editing unlocked 🦋"
         );
 
       } catch {
@@ -2997,34 +2295,60 @@ $("unlockForm")
   );
 
 
-function lockAcademic() {
+function updateAcademicEditButtons() {
 
-  state.academicUnlocked =
+  const button =
+    $("academicEditButton");
+
+
+  if (button) {
+
+    button.textContent =
+      state.academicEditMode
+        ? "🔒 Done Editing"
+        : "🔐 Edit Academic";
+
+  }
+
+
+  const externalButton =
+    $("academicLockButton");
+
+
+  if (externalButton) {
+
+    externalButton.textContent =
+      state.academicEditMode
+        ? "🔒 Lock Academic"
+        : "🔐 Edit Academic";
+
+  }
+
+}
+
+
+function finishAcademicEdit() {
+
+  saveAcademicData();
+
+
+  state.academicEditMode =
     false;
 
 
-  sessionStorage.removeItem(
-    "pookieAcademicUnlocked"
-  );
-
-
-  $("academicLocked")
-    .classList
-    .remove(
-      "hidden"
-    );
-
-
-  $("academicUnlocked")
-    .classList
-    .add(
-      "hidden"
-    );
+  renderAcademic();
 
 
   toast(
-    "Academic Race locked 🔐"
+    "Academic editing locked 🔐"
   );
+
+}
+
+
+function lockAcademic() {
+
+  finishAcademicEdit();
 
 }
 
@@ -3171,28 +2495,12 @@ function getYearSemesters(
 
 function renderAcademic() {
 
-  if (
-    !state.academicUnlocked
-  ) {
+  /*
+     Academic information is ALWAYS visible.
 
-    $("academicLocked")
-      .classList
-      .remove(
-        "hidden"
-      );
-
-
-    $("academicUnlocked")
-      .classList
-      .add(
-        "hidden"
-      );
-
-
-    return;
-
-  }
-
+     Password is required only when the
+     user wants to EDIT the data.
+  */
 
   $("academicLocked")
     .classList
@@ -3247,10 +2555,17 @@ function renderAcademic() {
 
             </h2>
 
-            <div class="muted">
 
-              Choose Theory,
-              Practical or CGPA.
+            <div
+              class="muted"
+            >
+
+              Your academic marks
+              and grades are always
+              visible.
+
+              Editing requires
+              your password.
 
             </div>
 
@@ -3258,15 +2573,42 @@ function renderAcademic() {
 
 
           <div
-            style="font-size:30px"
+            style="
+              display:flex;
+              align-items:center;
+              gap:10px;
+              flex-wrap:wrap;
+              justify-content:flex-end
+            "
           >
-            🦋
+
+            <button
+              id="academicEditButton"
+              type="button"
+              class="primary-btn"
+              style="
+                width:auto;
+                padding:10px 14px
+              "
+            >
+
+              🔐 Edit Academic
+
+            </button>
+
+
+            <div
+              style="font-size:30px"
+            >
+
+              🦋
+
+            </div>
+
           </div>
 
         </div>
 
-
-        <!-- NESTED SECTION -->
 
         <div
           class="semester-tabs"
@@ -3283,7 +2625,9 @@ function renderAcademic() {
                 : ""
             }"
           >
+
             📚 Theory
+
           </button>
 
 
@@ -3296,7 +2640,9 @@ function renderAcademic() {
                 : ""
             }"
           >
+
             🧪 Practical
+
           </button>
 
 
@@ -3309,7 +2655,9 @@ function renderAcademic() {
                 : ""
             }"
           >
+
             🏆 CGPA
+
           </button>
 
         </div>
@@ -3322,6 +2670,30 @@ function renderAcademic() {
       </div>
 
     `;
+
+
+  $("academicEditButton")
+    .addEventListener(
+      "click",
+      () => {
+
+        if (
+          state.academicEditMode
+        ) {
+
+          finishAcademicEdit();
+
+        } else {
+
+          openLockModal();
+
+        }
+
+      }
+    );
+
+
+  updateAcademicEditButtons();
 
 
   $("academicModeTabs")
@@ -3425,19 +2797,24 @@ function renderTheory(
         class="academic-section"
       >
 
-        <h3 style="margin:0">
+        <h3
+          style="margin:0"
+        >
 
           📚 Theory
 
         </h3>
 
 
-        <div class="muted">
+        <div
+          class="muted"
+        >
 
-          Each subject has
-          CAT 1 /100,
-          CAT 2 /100 and
-          Semester Grade.
+          CAT 1 and CAT 2 are
+          each out of 100.
+
+          Semester grades use
+          the preloaded credits.
 
         </div>
 
@@ -3543,16 +2920,32 @@ function renderTheorySubjects() {
               );
 
 
-            const cat1 =
+            const cat1Number =
               Number(
                 record.cat1
-              ) || 0;
+              );
+
+
+            const cat2Number =
+              Number(
+                record.cat2
+              );
+
+
+            const cat1 =
+              Number.isFinite(
+                cat1Number
+              )
+                ? cat1Number
+                : null;
 
 
             const cat2 =
-              Number(
-                record.cat2
-              ) || 0;
+              Number.isFinite(
+                cat2Number
+              )
+                ? cat2Number
+                : null;
 
 
             return `
@@ -3629,8 +3022,16 @@ function renderTheorySubjects() {
                       step="0.01"
 
                       value="${
-                        cat1
+                        cat1 === null
+                          ? ""
+                          : cat1
                       }"
+
+                      ${
+                        state.academicEditMode
+                          ? ""
+                          : "disabled"
+                      }
 
                       data-index="${index}"
 
@@ -3666,8 +3067,16 @@ function renderTheorySubjects() {
                       step="0.01"
 
                       value="${
-                        cat2
+                        cat2 === null
+                          ? ""
+                          : cat2
                       }"
+
+                      ${
+                        state.academicEditMode
+                          ? ""
+                          : "disabled"
+                      }
 
                       data-index="${index}"
 
@@ -3683,6 +3092,12 @@ function renderTheorySubjects() {
                     Semester Grade
 
                     <select
+
+                      ${
+                        state.academicEditMode
+                          ? ""
+                          : "disabled"
+                      }
 
                       data-index="${index}"
 
@@ -3706,12 +3121,22 @@ function renderTheorySubjects() {
                 >
 
                   CAT 1:
-                  ${cat1.toFixed(2)}%
+
+                  ${
+                    cat1 === null
+                      ? "—"
+                      : cat1.toFixed(2) + "%"
+                  }
 
                   &nbsp; · &nbsp;
 
                   CAT 2:
-                  ${cat2.toFixed(2)}%
+
+                  ${
+                    cat2 === null
+                      ? "—"
+                      : cat2.toFixed(2) + "%"
+                  }
 
                 </div>
 
@@ -3740,8 +3165,11 @@ function renderTheorySubjects() {
                 <div
                   class="stat-label"
                 >
+
                   CAT 1
+
                 </div>
+
 
                 <div
                   id="liveCat1"
@@ -3765,8 +3193,11 @@ function renderTheorySubjects() {
                 <div
                   class="stat-label"
                 >
+
                   CAT 2
+
                 </div>
+
 
                 <div
                   id="liveCat2"
@@ -3790,8 +3221,11 @@ function renderTheorySubjects() {
                 <div
                   class="stat-label"
                 >
+
                   GPA
+
                 </div>
+
 
                 <div
                   id="liveGpa"
@@ -3810,14 +3244,46 @@ function renderTheorySubjects() {
             </div>
 
 
-            <button
-              id="saveTheory"
-              class="primary-btn"
-            >
+            ${
+              state.academicEditMode
 
-              Save Theory 🌷
+                ? `
 
-            </button>
+                  <button
+                    id="saveTheory"
+                    class="primary-btn"
+                  >
+
+                    Save Theory 🌷
+
+                  </button>
+
+                `
+
+                : `
+
+                  <div
+                    class="muted"
+                    style="
+                      text-align:center;
+                      margin-top:10px
+                    "
+                  >
+
+                    🔒 Read-only.
+
+                    Tap
+                    <strong>
+                      Edit Academic
+                    </strong>
+                    and enter your
+                    password to make
+                    changes.
+
+                  </div>
+
+                `
+            }
 
           </div>
 
@@ -3827,11 +3293,17 @@ function renderTheorySubjects() {
   bindAcademicInputs();
 
 
-  $("saveTheory")
-    .addEventListener(
-      "click",
-      saveAcademic
-    );
+  if (
+    $("saveTheory")
+  ) {
+
+    $("saveTheory")
+      .addEventListener(
+        "click",
+        saveAcademic
+      );
+
+  }
 
 }
 
@@ -3883,14 +3355,18 @@ function renderPractical(
         class="academic-section"
       >
 
-        <h3 style="margin:0">
+        <h3
+          style="margin:0"
+        >
 
           🧪 Practical
 
         </h3>
 
 
-        <div class="muted">
+        <div
+          class="muted"
+        >
 
           Practical subjects use
           their preloaded credits.
@@ -4075,6 +3551,12 @@ function renderPracticalSubjects() {
 
                     <select
 
+                      ${
+                        state.academicEditMode
+                          ? ""
+                          : "disabled"
+                      }
+
                       data-index="${index}"
 
                       data-field="practicalGrade"
@@ -4097,6 +3579,7 @@ function renderPracticalSubjects() {
 
           }
         )
+
         .join("") + `
 
 
@@ -4104,14 +3587,45 @@ function renderPracticalSubjects() {
             class="academic-section"
           >
 
-            <button
-              id="savePractical"
-              class="primary-btn"
-            >
+            ${
+              state.academicEditMode
 
-              Save Practical 🧪
+                ? `
 
-            </button>
+                  <button
+                    id="savePractical"
+                    class="primary-btn"
+                  >
+
+                    Save Practical 🧪
+
+                  </button>
+
+                `
+
+                : `
+
+                  <div
+                    class="muted"
+                    style="
+                      text-align:center
+                    "
+                  >
+
+                    🔒 Read-only.
+
+                    Tap
+                    <strong>
+                      Edit Academic
+                    </strong>
+                    and enter your
+                    password to change
+                    practical grades.
+
+                  </div>
+
+                `
+            }
 
           </div>
 
@@ -4121,11 +3635,17 @@ function renderPracticalSubjects() {
   bindAcademicInputs();
 
 
-  $("savePractical")
-    .addEventListener(
-      "click",
-      saveAcademic
-    );
+  if (
+    $("savePractical")
+  ) {
+
+    $("savePractical")
+      .addEventListener(
+        "click",
+        saveAcademic
+      );
+
+  }
 
 }
 
@@ -4174,11 +3694,14 @@ function renderCGPA() {
             </h3>
 
 
-            <div class="muted">
+            <div
+              class="muted"
+            >
 
               Theory semester grades
               + practical grades,
-              weighted by their credits.
+              weighted by their
+              preloaded credits.
 
             </div>
 
@@ -4188,7 +3711,9 @@ function renderCGPA() {
           <div
             style="font-size:30px"
           >
+
             🌷
+
           </div>
 
         </div>
@@ -4291,25 +3816,56 @@ function renderCGPA() {
         </div>
 
 
-        <button
-          id="saveCgpa"
-          class="primary-btn"
-        >
+        ${
+          state.academicEditMode
 
-          Save Academic Data 🌷
+            ? `
 
-        </button>
+              <button
+                id="saveCgpa"
+                class="primary-btn"
+              >
+
+                Save Academic Data 🌷
+
+              </button>
+
+            `
+
+            : `
+
+              <div
+                class="muted"
+                style="
+                  text-align:center;
+                  margin-top:10px
+                "
+              >
+
+                🔒 Academic data is
+                currently read-only.
+
+              </div>
+
+            `
+        }
 
       </section>
 
     `;
 
 
-  $("saveCgpa")
-    .addEventListener(
-      "click",
-      saveAcademic
-    );
+  if (
+    $("saveCgpa")
+  ) {
+
+    $("saveCgpa")
+      .addEventListener(
+        "click",
+        saveAcademic
+      );
+
+  }
 
 }
 
@@ -4390,6 +3946,15 @@ function bindAcademicInputs() {
           "change",
           event => {
 
+            if (
+              !state.academicEditMode
+            ) {
+
+              return;
+
+            }
+
+
             const index =
               Number(
                 event.target
@@ -4418,26 +3983,43 @@ function bindAcademicInputs() {
                 "cat2"
             ) {
 
-              const number =
-                Number(
-                  event.target.value
-                );
+              const raw =
+                event.target.value
+                  .trim();
 
 
-              record[field] =
-                String(
-                  Math.min(
-                    Math.max(
-                      Number.isFinite(
-                        number
-                      )
-                        ? number
-                        : 0,
-                      0
-                    ),
-                    100
-                  )
-                );
+              if (
+                raw ===
+                ""
+              ) {
+
+                record[field] =
+                  "";
+
+              } else {
+
+                const number =
+                  Number(
+                    raw
+                  );
+
+
+                record[field] =
+                  String(
+                    Math.min(
+                      Math.max(
+                        Number.isFinite(
+                          number
+                        )
+                          ? number
+                          : 0,
+                        0
+                      ),
+                      100
+                    )
+                  );
+
+              }
 
             } else {
 
@@ -4469,7 +4051,7 @@ function bindAcademicInputs() {
 
 
 /* ============================================================
-   SEMESTER CALCULATION
+   SEMESTER GPA
    ============================================================ */
 
 function calculateSemester(
@@ -4482,9 +4064,13 @@ function calculateSemester(
     ];
 
 
-  let cat1Total = 0;
+  let cat1Total =
+    0;
 
-  let cat2Total = 0;
+
+  let cat2Total =
+    0;
+
 
   let theorySubjects =
     0;
@@ -4492,6 +4078,7 @@ function calculateSemester(
 
   let weighted =
     0;
+
 
   let gpaCredits =
     0;
@@ -4513,8 +4100,13 @@ function calculateSemester(
           ];
 
 
-        if (!record)
+        if (
+          !record
+        ) {
+
           return;
+
+        }
 
 
         const credit =
@@ -4528,13 +4120,16 @@ function calculateSemester(
             credit
           ) ||
           credit <= 0
-        )
+        ) {
+
           return;
 
+        }
 
-        /* ---------------------------
+
+        /* -------------------------
            THEORY
-           --------------------------- */
+           ------------------------- */
 
         if (
           course.section ===
@@ -4618,9 +4213,9 @@ function calculateSemester(
         }
 
 
-        /* ---------------------------
+        /* -------------------------
            PRACTICAL
-           --------------------------- */
+           ------------------------- */
 
         else if (
           course.section ===
@@ -4664,11 +4259,13 @@ function calculateSemester(
           theorySubjects
         : 0,
 
+
     cat2Percentage:
       theorySubjects
         ? cat2Total /
           theorySubjects
         : 0,
+
 
     gpa:
       gpaCredits
@@ -4692,6 +4289,7 @@ function calculateYearCGPA(
   let weighted =
     0;
 
+
   let credits =
     0;
 
@@ -4710,8 +4308,11 @@ function calculateYearCGPA(
         if (
           semester.year !==
           year
-        )
+        ) {
+
           return;
+
+        }
 
 
         semester.courses
@@ -4732,8 +4333,13 @@ function calculateYearCGPA(
                 ];
 
 
-              if (!record)
+              if (
+                !record
+              ) {
+
                 return;
+
+              }
 
 
               const credit =
@@ -4747,8 +4353,11 @@ function calculateYearCGPA(
                   credit
                 ) ||
                 credit <= 0
-              )
+              ) {
+
                 return;
+
+              }
 
 
               const grade =
@@ -4766,8 +4375,11 @@ function calculateYearCGPA(
                 GRADE_POINTS[
                   grade
                 ] === undefined
-              )
+              ) {
+
                 return;
+
+              }
 
 
               weighted +=
@@ -4988,7 +4600,8 @@ function renderCalendar(
 
 
         if (
-          items.length === 0
+          items.length ===
+          0
         ) {
 
           toast(
@@ -5108,7 +4721,11 @@ if (
 
       navigator.serviceWorker
         .register(
-          "./service-worker.js"
+          "./service-worker.js?v=3",
+          {
+            updateViaCache:
+              "none"
+          }
         )
 
         .catch(
