@@ -4490,9 +4490,10 @@ function calculateSemester(
     0;
 
 
-  let weighted = 0;
+  let weighted =
+    0;
 
-  let theoryCredits =
+  let gpaCredits =
     0;
 
 
@@ -4515,6 +4516,25 @@ function calculateSemester(
         if (!record)
           return;
 
+
+        const credit =
+          Number(
+            course.credits
+          );
+
+
+        if (
+          !Number.isFinite(
+            credit
+          ) ||
+          credit <= 0
+        )
+          return;
+
+
+        /* ---------------------------
+           THEORY
+           --------------------------- */
 
         if (
           course.section ===
@@ -4576,21 +4596,11 @@ function calculateSemester(
             record.grade;
 
 
-          const credit =
-            Number(
-              course.credits
-            );
-
-
           if (
             grade &&
             GRADE_POINTS[
               grade
-            ] !== undefined &&
-            Number.isFinite(
-              credit
-            ) &&
-            credit > 0
+            ] !== undefined
           ) {
 
             weighted +=
@@ -4600,7 +4610,42 @@ function calculateSemester(
               credit;
 
 
-            theoryCredits +=
+            gpaCredits +=
+              credit;
+
+          }
+
+        }
+
+
+        /* ---------------------------
+           PRACTICAL
+           --------------------------- */
+
+        else if (
+          course.section ===
+          "practical"
+        ) {
+
+          const practicalGrade =
+            record.practicalGrade;
+
+
+          if (
+            practicalGrade &&
+            GRADE_POINTS[
+              practicalGrade
+            ] !== undefined
+          ) {
+
+            weighted +=
+              GRADE_POINTS[
+                practicalGrade
+              ] *
+              credit;
+
+
+            gpaCredits +=
               credit;
 
           }
@@ -4626,9 +4671,9 @@ function calculateSemester(
         : 0,
 
     gpa:
-      theoryCredits
+      gpaCredits
         ? weighted /
-          theoryCredits
+          gpaCredits
         : 0
 
   };
