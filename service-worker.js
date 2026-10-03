@@ -1,232 +1,58 @@
-/* ============================================================
-   POOKIE PERSONAL TRACKER
-   Service Worker
-   Cache version 2
-   ============================================================ */
+const CACHE = 'pookie-tracker-v2'
+const SHELL = ['/', '/index.html', '/app.js', '/styles.css', '/manifest.webmanifest']
 
-const CACHE_NAME =
-  "pookie-personal-tracker-v2";
+self.addEventListener('install', (event) => {
+  self.skipWaiting()
 
-const ASSETS = [
+  event.waitUntil(
+    caches.open(CACHE)
+      .then((cache) => cache.addAll(SHELL))
+      .catch(() => {})
+  )
+})
 
-  "./",
-
-  "./index.html",
-
-  "./styles.css",
-
-  "./app.js",
-
-  "./manifest.json",
-
-  "./icon.svg"
-
-];
-
-
-/* ============================================================
-   INSTALL
-   ============================================================ */
-
-self.addEventListener(
-  "install",
-  event => {
-
-    event.waitUntil(
-
-      caches
-        .open(
-          CACHE_NAME
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((key) => key !== CACHE)
+            .map((key) => caches.delete(key))
         )
-        .then(
-          cache =>
-            cache.addAll(
-              ASSETS
-            )
-        )
+      )
+      .then(() => self.clients.claim())
+  )
+})
 
-    );
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return
 
-    self.skipWaiting();
+  const url = new URL(event.request.url)
 
-  }
-);
+  const isImportantScript =
+    url.pathname.endsWith('/app.js') ||
+    url.pathname.endsWith('/sw.js')
 
-
-/* ============================================================
-   ACTIVATE
-   ============================================================ */
-
-self.addEventListener(
-  "activate",
-  event => {
-
-    event.waitUntil(
-
-      caches
-        .keys()
-        .then(
-          cacheNames =>
-
-            Promise.all(
-
-              cacheNames
-                .filter(
-                  cacheName =>
-                    cacheName !==
-                    CACHE_NAME
-                )
-
-                .map(
-                  cacheName =>
-                    caches.delete(
-                      cacheName
-                    )
-                )
-
-            )
-
-        )
-
-    );
-
-    self.clients.claim();
-
-  }
-);
-
-
-/* ============================================================
-   FETCH
-   ============================================================ */
-
-self.addEventListener(
-  "fetch",
-  event => {
-
-    const request =
-      event.request;
-
-
-    /*
-      For JavaScript files, try the
-      network first so updated code
-      appears quickly.
-    */
-
-    if (
-      request.destination ===
-      "script"
-    ) {
-
-      event.respondWith(
-
-        fetch(
-          request
-        )
-
-          .then(
-            response => {
-
-              const copy =
-                response.clone();
-
-
-              caches
-                .open(
-                  CACHE_NAME
-                )
-                .then(
-                  cache => {
-
-                    cache.put(
-                      request,
-                      copy
-                    );
-
-                  }
-                );
-
-
-              return response;
-
-            }
-          )
-
-          .catch(
-            () =>
-              caches.match(
-                request
-              )
-          )
-
-      );
-
-      return;
-
-    }
-
-
-    /*
-      For other files:
-      cache first, then network.
-    */
-
+  if (isImportantScript) {
     event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const copy = response.clone()
 
-      caches
-        .match(
-          request
-        )
+          caches.open(CACHE)
+            .then((cache) => cache.put(event.request, copy))
 
-        .then(
-          cachedResponse => {
+          return response
+        })
+        .catch(() => caches.match(event.request))
+    )
 
-            if (
-              cachedResponse
-            ) {
-
-              return cachedResponse;
-
-            }
-
-
-            return fetch(
-              request
-            )
-
-              .then(
-                response => {
-
-                  const copy =
-                    response.clone();
-
-
-                  caches
-                    .open(
-                      CACHE_NAME
-                    )
-                    .then(
-                      cache => {
-
-                        cache.put(
-                          request,
-                          copy
-                        );
-
-                      }
-                    );
-
-
-                  return response;
-
-                }
-              );
-
-          }
-        )
-
-    );
-
+    return
   }
-);
+
+  event.respondWith(
+    caches.match(event.request)
+      .then((cached) => cached || fetch(event.request))
+  )
+})
